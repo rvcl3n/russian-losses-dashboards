@@ -1,0 +1,24 @@
+version: 0.2
+
+env:
+    variables:
+        CACHE_CONTROL: "86400"
+        S3_BUCKET: "{{s3_bucket_url}}"
+        BUILD_FOLDER: "russian-losses-dashboards-app/dist"
+phases:
+  install:
+    runtime-versions:
+        nodejs: 16
+    commands:
+        - cd russian-losses-dashboards-app && echo Installing source NPM dependencies...
+        - cd russian-losses-dashboards-app && npm install
+        - cd russian-losses-dashboards-app && npm install -g @angular/cli
+  build:
+    commands:
+        - cd russian-losses-dashboards-app && echo Build started 
+        - cd russian-losses-dashboards-app && ng build
+artifacts:
+    files:
+        - '**/*'
+    base-directory: 'russian-losses-dashboards-app/dist*'
+    discard-paths: yes
