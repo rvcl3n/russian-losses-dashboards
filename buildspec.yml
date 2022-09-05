@@ -15,8 +15,8 @@ phases:
         - npm install -g @angular/cli
   build:
     commands:
-        - cd russian-losses-dashboards-app && echo Build started 
-        - cd russian-losses-dashboards-app && ng build
+        - echo Build started 
+        - ng build
 artifacts:
     files:
         - '**/*'
