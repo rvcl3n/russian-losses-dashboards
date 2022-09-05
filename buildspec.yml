@@ -11,8 +11,8 @@ phases:
         nodejs: 16
     commands:
         - cd russian-losses-dashboards-app && echo Installing source NPM dependencies...
-        - cd russian-losses-dashboards-app && npm install
-        - cd russian-losses-dashboards-app && npm install -g @angular/cli
+        - npm install
+        - npm install -g @angular/cli
   build:
     commands:
         - cd russian-losses-dashboards-app && echo Build started 
