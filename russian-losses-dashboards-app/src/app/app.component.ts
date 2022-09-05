@@ -25,7 +25,7 @@ export class AppComponent {
           {
             label: "Troops Losses",
             data: [3900,5800,7200,5050,5280,6870],
-            backgroundColor: 'blue',
+            backgroundColor: 'rgba(255, 99, 132, 0.8)',
             barThickness : 50
           }
         ]
