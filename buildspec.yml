@@ -8,7 +8,7 @@ env:
 phases:
   install:
     runtime-versions:
-        nodejs: 14
+        nodejs: 16
     commands:
         - cd russian-losses-dashboards-app && echo Installing source NPM dependencies...
         - cd russian-losses-dashboards-app && npm install
