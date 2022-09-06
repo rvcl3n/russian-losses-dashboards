@@ -1,14 +1,15 @@
-<style>
-  h1 {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-</style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<h1>Russian Losses</h1>
-  
-  <div class="chart-container">
-    <canvas  id="LossesChart" >{{ chart }}</canvas>
-</div>
-
-<router-outlet></router-outlet>
+<app-layout>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+      <!--this is a place for us to add side-nav code-->
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-header></app-header>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</app-layout>
