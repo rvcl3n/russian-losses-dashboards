@@ -10,6 +10,7 @@ import { MaterialModule } from './material/material.module';
 import { LayoutComponent } from './layout/layout.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { HeaderComponent } from './navigation/header/header.component';
+import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HeaderComponent } from './navigation/header/header.component';
     HomeComponent,
     LayoutComponent,
     HeaderComponent,
+    SidenavListComponent,
   ],
   imports: [
     BrowserModule,
