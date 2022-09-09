@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-total-losses',
+  templateUrl: './total-losses.component.html',
+  styleUrls: ['./total-losses.component.css']
 })
-export class HomeComponent implements OnInit {
+export class TotalLossesComponent implements OnInit {
 
   public chart: any;
 
@@ -16,17 +16,17 @@ export class HomeComponent implements OnInit {
 
   createChart(){
   
-    this.chart = new Chart("LossesChart", {
-      type: 'bar', //this denotes tha type of chart
+    this.chart = new Chart("TotalLossesChart", {
+      type: 'line', //this denotes tha type of chart
 
       data: {// values on X-Axis
         labels: ["February","March","April","May","June","July","August","September(updating)"], 
 	       datasets: [
           {
             label: "Troops Losses",
-            data: [12200,3900,5800,7200,5050,5280,6870,1450],
+            data: [5710,12200,17700,23500,30700,35750,41030,48350],
             backgroundColor: 'rgba(255, 99, 132, 0.8)',
-            barThickness : 50
+            borderColor: 'rgb(255, 0, 0, 0.8)'
           }
         ]
       },
