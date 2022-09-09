@@ -20,11 +20,11 @@ export class HomeComponent implements OnInit {
       type: 'bar', //this denotes tha type of chart
 
       data: {// values on X-Axis
-        labels: ["March","April","May","June","July","August","September(updating)"], 
+        labels: ["February","March","April","May","June","July","August","September(updating)"], 
 	       datasets: [
           {
             label: "Troops Losses",
-            data: [3900,5800,7200,5050,5280,6870,1450],
+            data: [12200,3900,5800,7200,5050,5280,6870,1450],
             backgroundColor: 'rgba(255, 99, 132, 0.8)',
             barThickness : 50
           }
