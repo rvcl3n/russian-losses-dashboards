@@ -1,0 +1,18 @@
+[
+	{
+		"date": "2022-02-25",
+		"personnel": 2800,
+		"tanks": 80,
+		"afv": 516,
+		"artillery": 0,
+		"mlrs": 0,
+		"adf": 0,
+		"jets": 10,
+		"helicopters": 7,
+		"uav": 0,
+		"cruiseMissiles": 20,
+		"warShips": 0,
+		"vehicles": 100,
+		"specialEquipment": 0
+	}
+]
