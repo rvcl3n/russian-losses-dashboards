@@ -10,6 +10,7 @@ phases:
     runtime-versions:
         nodejs: 16
     commands:
+        - cp russian-losses.json /russian-losses-dashboards-app
         - cd russian-losses-dashboards-app && echo Installing source NPM dependencies...
         - npm install
         - npm install -g @angular/cli
