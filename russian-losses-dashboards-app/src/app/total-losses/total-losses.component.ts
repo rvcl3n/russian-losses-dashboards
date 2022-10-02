@@ -23,11 +23,10 @@ export class TotalLossesComponent implements OnInit {
       console.log(data[key]['personnel']);
       datesArray.push(data[key]['date']);
       lossesArray.push(data[key]['personnel']);
-  }
+    }
 
     this.chart = new Chart("TotalLossesChart", {
       type: 'line', //this denotes tha type of chart
-
       data: {// values on X-Axis
         labels: datesArray, 
 	       datasets: [
