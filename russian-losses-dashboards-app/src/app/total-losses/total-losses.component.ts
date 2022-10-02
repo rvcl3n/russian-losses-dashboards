@@ -22,6 +22,8 @@ export class TotalLossesComponent implements OnInit {
     var afvArray = new Array();
     var artilleryArray = new Array();
     var mlrsArray = new Array();
+    var adfArray = new Array();
+    var jetsArray = new Array();
 
     for (var key in data) {
       datesArray.push(data[key]['date']);
@@ -30,6 +32,8 @@ export class TotalLossesComponent implements OnInit {
       afvArray.push(data[key]['afv']);
       artilleryArray.push(data[key]['artillery']);
       mlrsArray.push(data[key]['mlrs']);
+      adfArray.push(data[key]['adf']);
+      jetsArray.push(data[key]['jets']);
     }
 
     this.chart = new Chart("TotalLossesChart", {
@@ -66,6 +70,18 @@ export class TotalLossesComponent implements OnInit {
             data: mlrsArray,
             backgroundColor: 'rgba(255, 255, 102, 0.8)',
             borderColor: 'rgb(215, 215, 0, 0.8)'
+          },
+          {
+            label: "ADF Losses",
+            data: adfArray,
+            backgroundColor: 'rgba(238, 130, 238, 0.8)',
+            borderColor: 'rgb(255, 0, 255, 0.8)'
+          },
+          {
+            label: "Jets Losses",
+            data: jetsArray,
+            backgroundColor: 'rgba(135, 206, 250, 0.8)',
+            borderColor: 'rgb(30, 144, 255, 0.8)'
           }
         ]
       },
