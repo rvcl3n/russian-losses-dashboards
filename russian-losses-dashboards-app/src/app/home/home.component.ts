@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import Chart from 'chart.js/auto';
 import data from '../../../../russian-losses.json';
 
 @Component({
@@ -9,47 +8,49 @@ import data from '../../../../russian-losses.json';
 })
 export class HomeComponent implements OnInit {
 
-  public chart: any;
+  public personnel: number;
+  public tanks: number;
+  public afv: number;
+  public artillery: number;
+  public mlrs: number;
+  public adf: number;
+  public jets: number;
+  public helicopters: number;
+  public uav: number;
+  public cruiseMissiles: number;
+  public warShips: number;
+  public vehicles: number;
+  public specialEquipment: number;
+
+  constructor(){
+    this.personnel = 0;
+    this.tanks = 0;
+    this.afv = 0;
+    this.artillery = 0;
+    this.mlrs = 0;
+    this.adf = 0;
+    this.jets = 0;
+    this.helicopters = 0;
+    this.uav = 0;
+    this.cruiseMissiles = 0;
+    this.warShips = 0;
+    this.vehicles = 0;
+    this.specialEquipment = 0;
+  }
 
   ngOnInit(): void {
-    this.createChart();
+    this.personnel = data[data.length - 1]['personnel'];
+    this.tanks = data[data.length - 1]['tanks'];
+    this.afv = data[data.length - 1]['afv'];
+    this.artillery = data[data.length - 1]['artillery'];
+    this.mlrs = data[data.length - 1]['mlrs'];
+    this.adf = data[data.length - 1]['adf'];
+    this.jets = data[data.length - 1]['jets'];
+    this.helicopters = data[data.length - 1]['helicopters'];
+    this.uav = data[data.length - 1]['uav'];
+    this.cruiseMissiles = data[data.length - 1]['cruiseMissiles'];
+    this.warShips = data[data.length - 1]['warShips'];
+    this.vehicles = data[data.length - 1]['vehicles'];
+    this.specialEquipment =  data[data.length - 1]['specialEquipment'];
   }
-
-  createChart(){
-    let map = new Map<string, number>();
-
-    for (var key in data) {
-
-      if (map.get((data[key]['date'].split('-'))[1]))
-      {
-        let val = map.get((data[key]['date'].split('-'))[1])!;
-
-        map.set((data[key]['date'].split('-'))[1], data[key]['personnelDetla'] + val);
-      }
-      else
-      {
-        map.set((data[key]['date'].split('-'))[1], data[key]['personnelDetla']);
-      }
-    }
-
-    this.chart = new Chart("LossesChart", {
-      type: 'bar', //this denotes tha type of chart
-
-      data: {// values on X-Axis
-        labels: Array.from(map.keys()), 
-	       datasets: [
-          {
-            label: "Troops Losses",
-            data: Array.from(map.values()),
-            backgroundColor: 'rgba(255, 99, 132, 0.8)',
-            barThickness : 50
-          }
-        ]
-      },
-      options: {
-        aspectRatio: 3        
-      }     
-    });
-  }
-
 }
