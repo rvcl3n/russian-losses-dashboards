@@ -12,6 +12,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { TotalLossesComponent } from './total-losses/total-losses.component';
+import { MonthlyLossesComponent } from './monthly-losses/monthly-losses.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TotalLossesComponent } from './total-losses/total-losses.component';
     HeaderComponent,
     SidenavListComponent,
     TotalLossesComponent,
+    MonthlyLossesComponent,
   ],
   imports: [
     BrowserModule,
