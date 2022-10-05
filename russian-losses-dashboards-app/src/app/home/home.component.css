@@ -6,14 +6,12 @@
     width: 70%;
     height: auto;
     margin: auto;
-    display: flex;
     flex-flow: column;
     padding: 0;
 }
 .bhead {
     margin-top: 16px;
 }
-
 h1 {
     text-align: center;
     margin-bottom: 5px; 
@@ -28,4 +26,9 @@ hr {
     background: #3f51b5;
     margin-left: 5px;
     margin-right: 5px;
+}
+.link {
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
 }
