@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   public warShips: number;
   public vehicles: number;
   public specialEquipment: number;
+  public date: string;
 
   constructor(){
     this.personnel = 0;
@@ -36,9 +37,11 @@ export class HomeComponent implements OnInit {
     this.warShips = 0;
     this.vehicles = 0;
     this.specialEquipment = 0;
+    this.date = "";
   }
 
   ngOnInit(): void {
+    this.date = data[data.length - 1]['date'];
     this.personnel = data[data.length - 1]['personnel'];
     this.tanks = data[data.length - 1]['tanks'];
     this.afv = data[data.length - 1]['afv'];
