@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
+import zoomPlugin from 'chartjs-plugin-zoom';
 import * as data from '../../../../russian-losses.json';
+Chart.register(zoomPlugin);
 
 @Component({
   selector: 'app-total-losses',
@@ -134,7 +136,24 @@ export class TotalLossesComponent implements OnInit {
         ]
       },
       options: {
-        aspectRatio: 3        
+        aspectRatio: 3,
+        plugins: {
+          zoom: {
+            pan: {
+              enabled: true,
+              mode: 'x',
+            },
+            zoom: {
+              wheel: {
+                enabled: true,
+              },
+              pinch: {
+                enabled: true
+              },
+              mode: 'x',
+            }
+          }
+        }
       }     
     });
   }
