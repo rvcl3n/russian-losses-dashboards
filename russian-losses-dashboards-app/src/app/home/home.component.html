@@ -5,25 +5,25 @@
   <hr/>
   <div class="bbody">
   <ul>
-    <li>Personnel: {{personnel}}</li>
-    <li>Tanks: {{tanks}}</li>
-    <li>AFV: {{afv}}</li>
-    <li>Artillery: {{artillery}}</li>
-    <li>MLRS: {{mlrs}}</li>
-    <li>ADF: {{adf}}</li>
-    <li>Jets: {{jets}}</li>
-    <li>Helicopters: {{helicopters}}</li>
-    <li>UAV: {{uav}}</li>
-    <li>Cruise Missiles: {{cruiseMissiles}}</li>
-    <li>War Ships: {{warShips}}</li>
-    <li>Vehicles: {{vehicles}}</li>
-    <li>Special Equipment: {{specialEquipment}}</li>
+    <li>Personnel: {{personnel}} <div [innerHTML]="personnelDelta" class="delta"></div></li>
+    <li>Tanks: {{tanks}} <div [innerHTML]="tanksDelta" class="delta"></div></li>
+    <li>AFV: {{afv}} <div [innerHTML]="afvDelta" class="delta"></div></li>
+    <li>Artillery: {{artillery}} <div [innerHTML]="artilleryDelta" class="delta"></div></li>
+    <li>MLRS: {{mlrs}} <div [innerHTML]="artilleryDelta" class="delta"></div></li>
+    <li>ADF: {{adf}} <div [innerHTML]="adfDelta" class="delta"></div></li>
+    <li>Jets: {{jets}} <div [innerHTML]="jetsDelta" class="delta"></div></li>
+    <li>Helicopters: {{helicopters}} <div [innerHTML]="helicoptersDelta" class="delta"></div></li>
+    <li>UAV: {{uav}} <div [innerHTML]="uavDelta" class="delta"></div></li>
+    <li>Cruise Missiles: {{cruiseMissiles}} <div [innerHTML]="cruiseMissilesDelta" class="delta"></div></li>
+    <li>War Ships: {{warShips}} <div [innerHTML]="warShipsDelta" class="delta"></div></li>
+    <li>Vehicles: {{vehicles}} <div [innerHTML]="vehiclesDelta" class="delta"></div></li>
+    <li>Special Equipment: {{specialEquipment}} <div [innerHTML]="specialEquipmentDelta" class="delta"></div></li>
   </ul>
 </div>
 </div>
 <br/>
 <br/>
 <div class="link">
-  <a routerLink="/totallosses">To Charts</a>
+  <a routerLink="/totallosses">Go to Charts</a>
 </div>
       

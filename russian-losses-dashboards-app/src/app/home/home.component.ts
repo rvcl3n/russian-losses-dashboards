@@ -6,39 +6,36 @@ import data from '../../../../russian-losses.json';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 
   public personnel: number;
+  public personnelDelta: string = '';
   public tanks: number;
+  public tanksDelta: string = '';
   public afv: number;
+  public afvDelta: string = '';
   public artillery: number;
+  public artilleryDelta: string = '';
   public mlrs: number;
+  public mlrsDelta: string = '';
   public adf: number;
+  public adfDelta: string = '';
   public jets: number;
+  public jetsDelta: string = '';
   public helicopters: number;
+  public helicoptersDelta: string = '';
   public uav: number;
+  public uavDelta: string = '';
   public cruiseMissiles: number;
+  public cruiseMissilesDelta: string = '';
   public warShips: number;
+  public warShipsDelta: string = '';
   public vehicles: number;
+  public vehiclesDelta: string = '';
   public specialEquipment: number;
+  public specialEquipmentDelta: string = '';
   public date: string;
-
-  constructor(){
-    this.personnel = 0;
-    this.tanks = 0;
-    this.afv = 0;
-    this.artillery = 0;
-    this.mlrs = 0;
-    this.adf = 0;
-    this.jets = 0;
-    this.helicopters = 0;
-    this.uav = 0;
-    this.cruiseMissiles = 0;
-    this.warShips = 0;
-    this.vehicles = 0;
-    this.specialEquipment = 0;
-    this.date = "";
-  }
 
   ngOnInit(): void {
     this.date = data[data.length - 1]['date'];
@@ -54,6 +51,63 @@ export class HomeComponent implements OnInit {
     this.cruiseMissiles = data[data.length - 1]['cruiseMissiles'];
     this.warShips = data[data.length - 1]['warShips'];
     this.vehicles = data[data.length - 1]['vehicles'];
-    this.specialEquipment =  data[data.length - 1]['specialEquipment'];
+    this.specialEquipment = data[data.length - 1]['specialEquipment'];
+
+    if (data[data.length - 1]['personnelDetla'] > 0) { 
+      this.personnelDelta = '(+' + data[data.length - 1]['personnelDetla'] + ')';
+    }
+
+    if (data[data.length - 1]['tanksDelta'] > 0) { 
+      this.tanksDelta = '(+' + data[data.length - 1]['tanksDelta'] + ')';
+    }
+
+    if (data[data.length - 1]['afvDelta'] > 0){ 
+      this.afvDelta = '(+' + data[data.length - 1]['afvDelta'] + ')';
+    }
+
+    if (data[data.length - 1]['artilleryDelta'] > 0) { 
+      this.artilleryDelta = '(+' + data[data.length - 1]['artilleryDelta'] + ')';
+    }
+
+    if (data[data.length - 1]['artilleryDelta'] > 0) { 
+      this.artilleryDelta = '(+' + data[data.length - 1]['artilleryDelta'] + ')';
+    }
+
+    if (data[data.length - 1]['mlrsDelta']) {
+      this.mlrsDelta = '(+' + data[data.length - 1]['mlrsDelta'] + ')';
+    }
+
+    if (data[data.length - 1]['adfDelta'] > 0) {
+      this.adfDelta = '<div class="delta">(+' + data[data.length - 1]['adfDelta'] + ')</div>';
+    }
+
+    if (data[data.length - 1]['jetsDelta']) {
+      this.jetsDelta = '(+' + data[data.length - 1]['jetsDelta'] + ')';
+    }
+
+    if (data[data.length - 1]['helicoptersDelta']) {
+      this.helicoptersDelta = '(+' + data[data.length - 1]['helicoptersDelta'] + ')';
+    }
+
+    if (data[data.length - 1]['uavDelta']) {
+      this.uavDelta = '(+' + data[data.length - 1]['uavDelta'] + ')';
+    }
+
+    if (data[data.length - 1]['cruiseMissilesDelta']) {
+      this.cruiseMissilesDelta = '(+' + data[data.length - 1]['cruiseMissilesDelta'] + ')';
+    }
+
+    if (data[data.length - 1]['warShipsDelta']) {
+      this.warShipsDelta = '(+' + data[data.length - 1]['warShipsDelta'] + ')';
+    }
+
+    if (data[data.length - 1]['vehiclesDelta']) {
+      this.vehiclesDelta = '(+' + data[data.length - 1]['vehiclesDelta'] + ')';
+    }
+
+    if (data[data.length - 1]['specialEquipmentDelta']) {
+      this.specialEquipmentDelta = '(+' + data[data.length - 1]['specialEquipmentDelta'] + ')';
+    }
+
   }
 }
