@@ -32,6 +32,10 @@ li {
     font-size: 20px;
     padding: 5px;
 }
+li:hover {
+    cursor: pointer;
+    color: red;
+}
 hr {
     border: 0;
     height: 1px;
