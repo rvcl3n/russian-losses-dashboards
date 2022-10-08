@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Chart from 'chart.js/auto';
 import data from '../../../../russian-losses.json';
 
 @Component({
@@ -8,6 +9,8 @@ import data from '../../../../russian-losses.json';
 })
 
 export class HomeComponent implements OnInit {
+
+  public currentLossesChart: any;
 
   public personnel: number;
   public personnelDelta: string = '';
@@ -36,6 +39,22 @@ export class HomeComponent implements OnInit {
   public specialEquipment: number;
   public specialEquipmentDelta: string = '';
   public date: string;
+
+  public datesArray = new Array();
+  public tanksArray = new Array();
+  public pesonnelArray = new Array();
+  public afvArray = new Array();
+  public artilleryArray = new Array();
+  public mlrsArray = new Array();
+  public adfArray  = new Array();
+  public jetsArray = new Array();
+  public helicoptersArray = new Array();
+  public uavArray = new Array();
+  public cruiseMissilesArray = new Array();
+  public warShipsArray = new Array();
+  public vehiclesArray = new Array();
+  public specialEquipmentArray = new Array();
+
 
   ngOnInit(): void {
     this.date = data[data.length - 1]['date'];
@@ -108,6 +127,147 @@ export class HomeComponent implements OnInit {
     if (data[data.length - 1]['specialEquipmentDelta']) {
       this.specialEquipmentDelta = '(+' + data[data.length - 1]['specialEquipmentDelta'] + ')';
     }
+
+    this.createTroopsChart();
+  }
+
+  createTroopsChart() {
+    for (let i = data.length - 90; i < data.length; i+=3)
+    {
+      this.datesArray.push(data[i]['date']);
+      this.pesonnelArray.push(data[i]['personnel']);
+      this.tanksArray.push(data[i]['tanks']);
+      this.afvArray.push(data[i]['afv']);
+      this.artilleryArray.push(data[i]['artillery']);
+      this.mlrsArray.push(data[i]['mlrs']);
+      this.adfArray.push(data[i]['adf']);
+      this.jetsArray.push(data[i]['jets']);
+      this.helicoptersArray.push(data[i]['helicopters']);
+      this.uavArray.push(data[i]['uav']);
+      this.cruiseMissilesArray.push(data[i]['cruiseMissiles']);
+      this.warShipsArray.push(data[i]['warShips']);
+      this.vehiclesArray.push(data[i]['vehicles']);
+      this.specialEquipmentArray.push(data[i]['specialEquipment']);
+    }
+
+    this.currentLossesChart = new Chart("CurrentLossesChart", {
+      type: 'line', //this denotes tha type of chart
+      data: {// values on X-Axis
+        labels: this.datesArray, 
+	       datasets: [
+          {
+            label: "Troops Losses",
+            data: this.pesonnelArray,
+            backgroundColor: 'rgba(255, 99, 132, 0.8)',
+            borderColor: 'rgb(255, 0, 0, 0.8)'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        aspectRatio: 2,
+      }     
+    });
+  }
+
+  public onListClick(lossesType: string) {
+    console.log('onListClick');
+
+    switch(lossesType)
+    {
+      case "Personnel": {
+        this.currentLossesChart.data.datasets[0].data = this.pesonnelArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 99, 132, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 0, 0, 0.8)';
+        break;
+      }
+      case "Tanks": {
+        this.currentLossesChart.data.datasets[0].data = this.tanksArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(50, 205, 50, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(34, 139, 34, 0.8)';
+        break;
+      }
+      case "AFV": {
+        this.currentLossesChart.data.datasets[0].data = this.afvArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 99, 71, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 69, 0, 0.8)';
+        break;
+      }
+      case "AFV": {
+        this.currentLossesChart.data.datasets[0].data = this.afvArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 99, 71, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 69, 0, 0.8)';
+        break;
+      }
+      case "Artillery": {
+        this.currentLossesChart.data.datasets[0].data = this.artilleryArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 99, 71, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 69, 0, 0.8)';
+        break;
+      }
+      case "MLRS": {
+        this.currentLossesChart.data.datasets[0].data = this.mlrsArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 255, 102, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(215, 215, 0, 0.8)';
+        break;
+      }
+      case "ADF": {
+        this.currentLossesChart.data.datasets[0].data = this.adfArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(238, 130, 238, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 0, 255, 0.8)';
+        break;
+      }
+      case "Jets": {
+        this.currentLossesChart.data.datasets[0].data = this.jetsArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(135, 206, 250, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(30, 144, 255, 0.8)';
+        break;
+      }
+      case "Helicopters": {
+        this.currentLossesChart.data.datasets[0].data = this.helicoptersArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(32, 178, 170, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(85, 140, 100, 0.8)';
+        break;
+      }
+      case "UAV": {
+        this.currentLossesChart.data.datasets[0].data = this.uavArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 215, 0, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(218, 165, 32, 0.8)';
+        break;
+      }
+      case "Cruise Missiles": {
+        this.currentLossesChart.data.datasets[0].data = this.cruiseMissilesArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(169, 169, 169, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(128, 128, 128, 0.8)';
+        break;
+      }
+      case "War Ships": {
+        this.currentLossesChart.data.datasets[0].data = this.warShipsArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(23, 104, 238, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(106, 90, 205, 0.8)';
+        break;
+      }
+      case "Vehicles": {
+        this.currentLossesChart.data.datasets[0].data = this.vehiclesArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(165, 42, 42, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(128, 0, 0, 0.8)';
+        break;
+      }
+      case "Special Equipment": {
+        this.currentLossesChart.data.datasets[0].data = this.specialEquipmentArray;
+        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 182, 193, 0.8)';
+        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 105, 180, 0.8)';
+        break;
+      }
+      default: {
+        console.log('Chart error: wrong losses type');
+        break;
+      }
+    }
+
+    this.currentLossesChart.data.datasets[0].label = lossesType + ' Losses';
+    
+    this.currentLossesChart.update();
 
   }
 }
