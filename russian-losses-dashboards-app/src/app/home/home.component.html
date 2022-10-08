@@ -1,9 +1,9 @@
+<div class="center-content">
 <div class="info">
   <div class="bhead">
   <h1>Russia's Losses: {{date}}</h1>
   </div>
   <hr/>
-  <div class="bbody">
   <ul>
     <li>Personnel: {{personnel}} <div [innerHTML]="personnelDelta" class="delta"></div></li>
     <li>Tanks: {{tanks}} <div [innerHTML]="tanksDelta" class="delta"></div></li>
@@ -20,10 +20,19 @@
     <li>Special Equipment: {{specialEquipment}} <div [innerHTML]="specialEquipmentDelta" class="delta"></div></li>
   </ul>
 </div>
+<div class="current-losses-container">
+  <div class="bhead">
+    <h1>Losses for last 90 days</h1>
+    </div>
+    <hr/>
+  <canvas id="CurrentLossesChart">{{ currentLossesChart }}</canvas>
 </div>
+</div>
+
 <br/>
 <br/>
+
 <div class="link">
-  <a routerLink="/totallosses">Go to Charts</a>
+  <a routerLink="/totallosses">Go to Total Charts</a>
 </div>
       

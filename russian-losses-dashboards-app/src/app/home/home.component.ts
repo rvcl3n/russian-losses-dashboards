@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Chart from 'chart.js/auto';
 import data from '../../../../russian-losses.json';
 
 @Component({
@@ -8,6 +9,8 @@ import data from '../../../../russian-losses.json';
 })
 
 export class HomeComponent implements OnInit {
+
+  public currentLossesChart: any;
 
   public personnel: number;
   public personnelDelta: string = '';
@@ -109,5 +112,36 @@ export class HomeComponent implements OnInit {
       this.specialEquipmentDelta = '(+' + data[data.length - 1]['specialEquipmentDelta'] + ')';
     }
 
+    this.createTroopsChart();
+  }
+
+  createTroopsChart() {
+    var datesArray = new Array();
+    var pesonnelArray = new Array();
+
+    for (let i = data.length - 90; i < data.length; i+=3)
+    {
+      datesArray.push(data[i]['date']);
+      pesonnelArray.push(data[i]['personnel']);
+    }
+
+    this.currentLossesChart = new Chart("CurrentLossesChart", {
+      type: 'line', //this denotes tha type of chart
+      data: {// values on X-Axis
+        labels: datesArray, 
+	       datasets: [
+          {
+            label: "Troops Losses",
+            data: pesonnelArray,
+            backgroundColor: 'rgba(255, 99, 132, 0.8)',
+            borderColor: 'rgb(255, 0, 0, 0.8)'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        aspectRatio: 2,
+      }     
+    });
   }
 }
