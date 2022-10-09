@@ -62,6 +62,9 @@ export class TotalLossesComponent implements OnInit {
               mode: 'x',
             }
           }
+        },
+        animation: {
+          duration: 0
         }
       }     
     });
@@ -74,7 +77,6 @@ export class TotalLossesComponent implements OnInit {
     var artilleryArray = new Array();
     var mlrsArray = new Array();
     var adfArray = new Array();
-    var warShips = new Array();
     var vehicles = new Array();
     var specialEquipment = new Array();
 
@@ -85,7 +87,6 @@ export class TotalLossesComponent implements OnInit {
       artilleryArray.push(data[key]['artillery']);
       mlrsArray.push(data[key]['mlrs']);
       adfArray.push(data[key]['adf']);
-      warShips.push(data[key]['warShips']);
       vehicles.push(data[key]['vehicles']);
       specialEquipment.push(data[key]['specialEquipment']);
     }
@@ -126,12 +127,6 @@ export class TotalLossesComponent implements OnInit {
             borderColor: 'rgb(255, 0, 255, 0.8)'
           },
           {
-            label: "War Ships Losses",
-            data: warShips,
-            backgroundColor: 'rgba(23, 104, 238, 0.8)',
-            borderColor: 'rgb(106, 90, 205, 0.8)'
-          },
-          {
             label: "Vehicles Losses",
             data: vehicles,
             backgroundColor: 'rgba(165, 42, 42, 0.8)',
@@ -163,6 +158,9 @@ export class TotalLossesComponent implements OnInit {
               mode: 'x',
             }
           }
+        },
+        animation: {
+          duration: 0
         }
       }     
     });
@@ -240,6 +238,9 @@ export class TotalLossesComponent implements OnInit {
               mode: 'x',
             }
           }
+        },
+        animation: {
+          duration: 0
         }
       }     
     });

@@ -13,6 +13,7 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { TotalLossesComponent } from './total-losses/total-losses.component';
 import { MonthlyLossesComponent } from './monthly-losses/monthly-losses.component';
+import { SourcesComponent } from './sources/sources.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MonthlyLossesComponent } from './monthly-losses/monthly-losses.componen
     SidenavListComponent,
     TotalLossesComponent,
     MonthlyLossesComponent,
+    SourcesComponent,
   ],
   imports: [
     BrowserModule,
