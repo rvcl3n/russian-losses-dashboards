@@ -35,6 +35,9 @@ li:hover {
     cursor: pointer;
     color: red;
 }
+ul {
+    list-style-type: circle;
+}
 hr {
     border: 0;
     height: 2px;
