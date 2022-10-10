@@ -57,7 +57,10 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.date = data[data.length - 1]['date'];
+
+    const parsedDate = new Date(Date.parse(data[data.length - 1]['date']));
+
+    this.date = parsedDate.getDate() + '.' + (parsedDate.getMonth() + 1) + '.' + parsedDate.getFullYear();
     this.personnel = data[data.length - 1]['personnel'];
     this.tanks = data[data.length - 1]['tanks'];
     this.afv = data[data.length - 1]['afv'];
