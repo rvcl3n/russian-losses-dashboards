@@ -23,10 +23,10 @@ export class TotalLossesComponent implements OnInit {
   }
 
   createTroopsChart() {
-    var datesArray = new Array();
-    var pesonnelArray = new Array();
+    let datesArray = new Array();
+    let pesonnelArray = new Array();
 
-    for (var key in data) {
+    for (let key in data) {
       datesArray.push(data[key]['date']);
       pesonnelArray.push(data[key]['personnel']);
     }
@@ -71,16 +71,16 @@ export class TotalLossesComponent implements OnInit {
   }
 
   createVehiclesChart() {
-    var datesArray = new Array();
-    var tanksArray = new Array();
-    var afvArray = new Array();
-    var artilleryArray = new Array();
-    var mlrsArray = new Array();
-    var adfArray = new Array();
-    var vehicles = new Array();
-    var specialEquipment = new Array();
+    let datesArray = new Array();
+    let tanksArray = new Array();
+    let afvArray = new Array();
+    let artilleryArray = new Array();
+    let mlrsArray = new Array();
+    let adfArray = new Array();
+    let vehicles = new Array();
+    let specialEquipment = new Array();
 
-    for (var key in data) {
+    for (let key in data) {
       datesArray.push(data[key]['date']);
       tanksArray.push(data[key]['tanks']);
       afvArray.push(data[key]['afv']);
@@ -167,14 +167,14 @@ export class TotalLossesComponent implements OnInit {
   }
 
   createAirForcesChart() {
-    var datesArray = new Array();
-    var jetsArray = new Array();
-    var helicoptersArray = new Array();
-    var uavArray = new Array();
-    var cruiseMissiles = new Array();
-    var warShips = new Array();
+    let datesArray = new Array();
+    let jetsArray = new Array();
+    let helicoptersArray = new Array();
+    let uavArray = new Array();
+    let cruiseMissiles = new Array();
+    let warShips = new Array();
 
-    for (var key in data) {
+    for (let key in data) {
       datesArray.push(data[key]['date']);     
       jetsArray.push(data[key]['jets']);
       helicoptersArray.push(data[key]['helicopters']);

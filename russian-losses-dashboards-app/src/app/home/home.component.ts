@@ -174,7 +174,6 @@ export class HomeComponent implements OnInit {
   }
 
   public onListClick(lossesType: string) {
-    console.log('onListClick');
 
     switch(lossesType)
     {
