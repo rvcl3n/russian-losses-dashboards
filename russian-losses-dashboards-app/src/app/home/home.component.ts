@@ -195,12 +195,6 @@ export class HomeComponent implements OnInit {
         this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 69, 0, 0.8)';
         break;
       }
-      case "AFV": {
-        this.currentLossesChart.data.datasets[0].data = this.afvArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 99, 71, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 69, 0, 0.8)';
-        break;
-      }
       case "Artillery": {
         this.currentLossesChart.data.datasets[0].data = this.artilleryArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 99, 71, 0.8)';
