@@ -25,13 +25,16 @@ hr {
 }
 li {
     font-size: 16px;
+}
+.inner > li {
     padding: 2px;
 }
 ul.top > li {
     margin-top: 5px;
+    padding-top: 10px;
 }
 ul.top {
-    list-style-type: none;
+    list-style-type: circle;
 }
 ul.inner {
     list-style-type: none;
