@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import data from '../../../../russian-losses.json';
+import { ChartProps } from '../helpers/chart-props';
 
 @Component({
   selector: 'app-home',
@@ -161,8 +162,8 @@ export class HomeComponent implements OnInit {
           {
             label: "Troops Losses",
             data: this.pesonnelArray,
-            backgroundColor: 'rgba(255, 99, 132, 0.8)',
-            borderColor: 'rgb(255, 0, 0, 0.8)'
+            backgroundColor: ChartProps.PersonnelBGColor,
+            borderColor: ChartProps.PersonnelBorderColor
           }
         ]
       },
@@ -179,80 +180,80 @@ export class HomeComponent implements OnInit {
     {
       case "Personnel": {
         this.currentLossesChart.data.datasets[0].data = this.pesonnelArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 99, 132, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 0, 0, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.PersonnelBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.PersonnelBorderColor;
         break;
       }
       case "Tanks": {
         this.currentLossesChart.data.datasets[0].data = this.tanksArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(50, 205, 50, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(34, 139, 34, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.TanksChartBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.TanksChartBorderColor;
         break;
       }
       case "AFV": {
         this.currentLossesChart.data.datasets[0].data = this.afvArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 99, 71, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 69, 0, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.AFVChartBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.AFVChartBorderColor;
         break;
       }
       case "Artillery": {
         this.currentLossesChart.data.datasets[0].data = this.artilleryArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 99, 71, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 69, 0, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.ArtilleryChartBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.ArtilleryChartBorderColor;
         break;
       }
       case "MLRS": {
         this.currentLossesChart.data.datasets[0].data = this.mlrsArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 255, 102, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(215, 215, 0, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.MLRSChartBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.MLRSChartBorderColor;
         break;
       }
       case "ADF": {
         this.currentLossesChart.data.datasets[0].data = this.adfArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(238, 130, 238, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 0, 255, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.ADFChartBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.ADFChartBorderColor;
         break;
       }
       case "Jets": {
         this.currentLossesChart.data.datasets[0].data = this.jetsArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(135, 206, 250, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(30, 144, 255, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.JetsChartBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.JetsChartBorderColor;
         break;
       }
       case "Helicopters": {
         this.currentLossesChart.data.datasets[0].data = this.helicoptersArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(32, 178, 170, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(85, 140, 100, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.HelicoptersChartBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.HelicoptersChartBorderColor;
         break;
       }
       case "UAV": {
         this.currentLossesChart.data.datasets[0].data = this.uavArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 215, 0, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(218, 165, 32, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.UAVChartBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.UAVChartBorderColor;
         break;
       }
       case "Cruise Missiles": {
         this.currentLossesChart.data.datasets[0].data = this.cruiseMissilesArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(169, 169, 169, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(128, 128, 128, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.CruiseMissilesChartBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.CruiseMissilesChartBorderColor;
         break;
       }
       case "War Ships": {
         this.currentLossesChart.data.datasets[0].data = this.warShipsArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(23, 104, 238, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(106, 90, 205, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.WarShipsChartBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.WarShipsChartBorderColor;
         break;
       }
       case "Vehicles": {
         this.currentLossesChart.data.datasets[0].data = this.vehiclesArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(165, 42, 42, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(128, 0, 0, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.VehiclesChartBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.VehiclesChartBorderColor;
         break;
       }
       case "Special Equipment": {
         this.currentLossesChart.data.datasets[0].data = this.specialEquipmentArray;
-        this.currentLossesChart.data.datasets[0].backgroundColor = 'rgba(255, 182, 193, 0.8)';
-        this.currentLossesChart.data.datasets[0].borderColor = 'rgb(255, 105, 180, 0.8)';
+        this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.SpecialEquipmentChartBGColor;
+        this.currentLossesChart.data.datasets[0].borderColor = ChartProps.SpecialEquipmentChartBorderColor;
         break;
       }
       default: {
