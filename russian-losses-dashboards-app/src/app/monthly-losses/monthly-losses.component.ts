@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import data from '../../../../russian-losses.json';
+import { ChartProps } from '../helpers/chart-props';
 
 @Component({
   selector: 'app-monthly-losses',
@@ -65,19 +66,19 @@ export class MonthlyLossesComponent implements OnInit {
           {
             label: "Troops Losses",
             data: Array.from(troopsMap.values()),
-            backgroundColor: 'rgba(255, 99, 132, 0.8)',
+            backgroundColor: ChartProps.PersonnelBGColor,
             barThickness : 50
           },
           {
             label: "Tanks Losses",
             data: Array.from(tanksMap.values()),
-            backgroundColor: 'rgba(50, 205, 50, 0.8)',
+            backgroundColor: ChartProps.TanksChartBGColor,
             barThickness : 50
           },
           {
             label: "AFV Losses",
             data: Array.from(afvMap.values()),
-            backgroundColor: 'rgba(255, 99, 71, 0.8)',
+            backgroundColor: ChartProps.AFVChartBGColor,
             barThickness : 50
           }
         ]

@@ -41,7 +41,7 @@ export class TotalLossesComponent implements OnInit {
             label: "Troops Losses",
             data: pesonnelArray,
             backgroundColor: ChartProps.PersonnelBGColor,
-            borderColor: ChartProps.ADFChartBorderColor
+            borderColor: ChartProps.PersonnelBorderColor
           }
         ]
       },
