@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import zoomPlugin from 'chartjs-plugin-zoom';
 import * as data from '../../../../russian-losses.json';
+import { ChartProps } from '../helpers/chart-props';
 Chart.register(zoomPlugin);
 
 @Component({
@@ -39,8 +40,8 @@ export class TotalLossesComponent implements OnInit {
           {
             label: "Troops Losses",
             data: pesonnelArray,
-            backgroundColor: 'rgba(255, 99, 132, 0.8)',
-            borderColor: 'rgb(255, 0, 0, 0.8)'
+            backgroundColor: ChartProps.PersonnelBGColor,
+            borderColor: ChartProps.ADFChartBorderColor
           }
         ]
       },
@@ -99,44 +100,44 @@ export class TotalLossesComponent implements OnInit {
           {
             label: "Tanks Losses",
             data: tanksArray,
-            backgroundColor: 'rgba(50, 205, 50, 0.8)',
-            borderColor: 'rgb(34, 139, 34, 0.8)'
+            backgroundColor: ChartProps.TanksChartBGColor,
+            borderColor: ChartProps.TanksChartBorderColor
           },
           {
             label: "AFV Losses",
             data: afvArray,
-            backgroundColor: 'rgba(255, 99, 71, 0.8)',
-            borderColor: 'rgb(255, 69, 0, 0.8)'
+            backgroundColor: ChartProps.AFVChartBGColor,
+            borderColor: ChartProps.ADFChartBorderColor
           },
           {
             label: "Artillery Losses",
             data: artilleryArray,
-            backgroundColor: 'rgba(0, 255, 255, 0.8)',
-            borderColor: 'rgb(0, 206, 209, 0.8)'
+            backgroundColor: ChartProps.ArtilleryChartBGColor,
+            borderColor: ChartProps.ArtilleryChartBorderColor
           },
           {
             label: "MLRS Losses",
             data: mlrsArray,
-            backgroundColor: 'rgba(255, 255, 102, 0.8)',
-            borderColor: 'rgb(215, 215, 0, 0.8)'
+            backgroundColor: ChartProps.MLRSChartBGColor,
+            borderColor: ChartProps.MLRSChartBorderColor
           },
           {
             label: "ADF Losses",
             data: adfArray,
-            backgroundColor: 'rgba(238, 130, 238, 0.8)',
-            borderColor: 'rgb(255, 0, 255, 0.8)'
+            backgroundColor: ChartProps.ADFChartBGColor,
+            borderColor: ChartProps.ADFChartBorderColor
           },
           {
             label: "Vehicles Losses",
             data: vehicles,
-            backgroundColor: 'rgba(165, 42, 42, 0.8)',
-            borderColor: 'rgb(128, 0, 0, 0.8)'
+            backgroundColor: ChartProps.VehiclesChartBGColor,
+            borderColor: ChartProps.VehiclesChartBorderColor
           },
           {
             label: "Special Equipment Losses",
             data: specialEquipment,
-            backgroundColor: 'rgba(255, 182, 193, 0.8)',
-            borderColor: 'rgb(255, 105, 180, 0.8)'
+            backgroundColor: ChartProps.SpecialEquipmentChartBGColor,
+            borderColor: ChartProps.SpecialEquipmentChartBorderColor
           }
         ]
       },
@@ -191,32 +192,32 @@ export class TotalLossesComponent implements OnInit {
           {
             label: "Jets Losses",
             data: jetsArray,
-            backgroundColor: 'rgba(135, 206, 250, 0.8)',
-            borderColor: 'rgb(30, 144, 255, 0.8)'
+            backgroundColor: ChartProps.JetsChartBGColor,
+            borderColor: ChartProps.JetsChartBorderColor
           },
           {
             label: "Helicopters Losses",
             data: helicoptersArray,
-            backgroundColor: 'rgba(32, 178, 170, 0.8)',
-            borderColor: 'rgb(85, 140, 100, 0.8)'
+            backgroundColor: ChartProps.HelicoptersChartBGColor,
+            borderColor: ChartProps.HelicoptersChartBorderColor
           },
           {
             label: "UAV Losses",
             data: uavArray,
-            backgroundColor: 'rgba(255, 215, 0, 0.8)',
-            borderColor: 'rgb(218, 165, 32, 0.8)'
+            backgroundColor: ChartProps.UAVChartBGColor,
+            borderColor: ChartProps.UAVChartBorderColor
           },
           {
             label: "Cruise Missiles Losses",
             data: cruiseMissiles,
-            backgroundColor: 'rgba(169, 169, 169, 0.8)',
-            borderColor: 'rgb(128, 128, 128, 0.8)'
+            backgroundColor: ChartProps.CruiseMissilesChartBGColor,
+            borderColor: ChartProps.CruiseMissilesChartBorderColor
           },
           {
             label: "War Ships Losses",
             data: warShips,
-            backgroundColor: 'rgba(23, 104, 238, 0.8)',
-            borderColor: 'rgb(106, 90, 205, 0.8)'
+            backgroundColor: ChartProps.WarShipsChartBGColor,
+            borderColor: ChartProps.WarShipsChartBorderColor
           }
         ]
       },
