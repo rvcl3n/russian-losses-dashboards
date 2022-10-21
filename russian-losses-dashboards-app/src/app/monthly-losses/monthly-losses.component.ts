@@ -12,6 +12,8 @@ export class MonthlyLossesComponent implements OnInit {
 
   public chart: any;
 
+  barThickness: number = 30;
+
   ngOnInit(): void {
     this.createChart();
   }
@@ -20,6 +22,8 @@ export class MonthlyLossesComponent implements OnInit {
     let troopsMap = new Map<string, number>();
     let tanksMap = new Map<string, number>();
     let afvMap = new Map<string, number>();
+    let vehiclesMap = new Map<string, number>();
+    let artilleryMap = new Map<string, number>();
 
     for (var key in data) {
 
@@ -55,6 +59,28 @@ export class MonthlyLossesComponent implements OnInit {
       {
         afvMap.set((data[key]['date'].split('-'))[1], data[key]['afvDelta']);
       }
+
+      if (vehiclesMap.get((data[key]['date'].split('-'))[1]))
+      {
+        let val = vehiclesMap.get((data[key]['date'].split('-'))[1])!;
+
+        vehiclesMap.set((data[key]['date'].split('-'))[1], data[key]['vehiclesDelta'] + val);
+      }
+      else
+      {
+        vehiclesMap.set((data[key]['date'].split('-'))[1], data[key]['vehiclesDelta']);
+      }
+
+      if (artilleryMap.get((data[key]['date'].split('-'))[1]))
+      {
+        let val = artilleryMap.get((data[key]['date'].split('-'))[1])!;
+
+        artilleryMap.set((data[key]['date'].split('-'))[1], data[key]['artilleryDelta'] + val);
+      }
+      else
+      {
+        artilleryMap.set((data[key]['date'].split('-'))[1], data[key]['artilleryDelta']);
+      }
     }
 
     this.chart = new Chart("LossesChart", {
@@ -67,19 +93,31 @@ export class MonthlyLossesComponent implements OnInit {
             label: "Troops Losses",
             data: Array.from(troopsMap.values()),
             backgroundColor: ChartProps.PersonnelBGColor,
-            barThickness : 50
+            barThickness : this.barThickness
           },
           {
             label: "Tanks Losses",
             data: Array.from(tanksMap.values()),
             backgroundColor: ChartProps.TanksChartBGColor,
-            barThickness : 50
+            barThickness : this.barThickness
           },
           {
             label: "AFV Losses",
             data: Array.from(afvMap.values()),
             backgroundColor: ChartProps.AFVChartBGColor,
-            barThickness : 50
+            barThickness : this.barThickness
+          },
+          {
+            label: "Vehicles Losses",
+            data: Array.from(vehiclesMap.values()),
+            backgroundColor: ChartProps.VehiclesChartBGColor,
+            barThickness : this.barThickness
+          },
+          {
+            label: "Artillery Losses",
+            data: Array.from(artilleryMap.values()),
+            backgroundColor: ChartProps.ArtilleryChartBGColor,
+            barThickness : this.barThickness
           }
         ]
       },
