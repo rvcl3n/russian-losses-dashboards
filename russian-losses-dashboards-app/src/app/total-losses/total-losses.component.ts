@@ -16,6 +16,7 @@ export class TotalLossesComponent implements OnInit {
   public groundForcesChart: any;
   public airForcesChart: any;
 
+  aspectRatioValue: number;
 
   ngOnInit(): void {
     this.createTroopsChart();
@@ -26,7 +27,9 @@ export class TotalLossesComponent implements OnInit {
   createTroopsChart() {
     let datesArray = new Array();
     let pesonnelArray = new Array();
-
+    
+    this.aspectRatioValue = window.innerWidth < 1000 ? 1.5 : 3;
+ 
     for (let key in data) {
       datesArray.push(data[key]['date']);
       pesonnelArray.push(data[key]['personnel']);
@@ -46,7 +49,7 @@ export class TotalLossesComponent implements OnInit {
         ]
       },
       options: {
-        aspectRatio: 3,
+        aspectRatio: this.aspectRatioValue,
         plugins: {
           zoom: {
             pan: {
@@ -142,7 +145,7 @@ export class TotalLossesComponent implements OnInit {
         ]
       },
       options: {
-        aspectRatio: 3,
+        aspectRatio: this.aspectRatioValue,
         plugins: {
           zoom: {
             pan: {
@@ -222,7 +225,7 @@ export class TotalLossesComponent implements OnInit {
         ]
       },
       options: {
-        aspectRatio: 3,
+        aspectRatio: this.aspectRatioValue,
         plugins: {
           zoom: {
             pan: {
