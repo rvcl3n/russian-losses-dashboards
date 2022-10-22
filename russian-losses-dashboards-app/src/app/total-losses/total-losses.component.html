@@ -1,17 +1,17 @@
 <div class="total-losses-container">
     <h1>Troops Losses</h1>
     <hr/>
-    <canvas id="TroopsLossesChart">{{ troopsChart }}</canvas>
+    <canvas id="TroopsLossesChart" (click)="chartOnClick(troopsChart)">{{ troopsChart }}</canvas>
 </div>
 <br/>
 <div class="total-losses-container">
     <h1>Ground Forces Losses</h1>
     <hr/>
-    <canvas id="GroundForcesLossesChart" >{{ groundForcesChart }}</canvas>
+    <canvas id="GroundForcesLossesChart" (click)="chartOnClick(groundForcesChart)">{{ groundForcesChart }}</canvas>
 </div>
 <br/>
 <div class="total-losses-container">
     <h1>Air Forces Losses (+Naval)</h1>
     <hr/>
-    <canvas id="AirForcesLossesChart" >{{ airForcesChart }}</canvas>
+    <canvas id="AirForcesLossesChart" (click)="chartOnClick(airForcesChart)">{{ airForcesChart }}</canvas>
 </div>
