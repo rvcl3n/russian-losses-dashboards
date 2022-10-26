@@ -1,8 +1,22 @@
 {
     "HOME": {
-        "INFO_LOSSES": "Втрати росії",
         "DASHBOARD_TITLE": "Втрати за останні 90 днів",
-        "LINE_TITLE": "Особовий склад"
+        "LINE_TITLE": "Особовий склад",
+        "INFO_PERSONNEL": "Особовий склад",
+        "INFO_LOSSES": "Втрати росії",
+        "INFO_TANKS": "Танки",
+        "INFO_AFV": "Бронетехніка",
+        "INFO_ARTILLERY": "Артилерія",
+        "INFO_MLRS": "РСЗВ",
+        "INFO_ADF": "ППО",
+        "INFO_JETS": "Літаки",
+        "INFO_HELICOPTERS": "Гелікоптери",
+        "INFO_UAV": "БПЛА",
+        "INFO_CRUISE_MISSILES": "Крилаті Ракети",
+        "INFO_WAR_SHIPS": "Кораблі",
+        "INFO_VEHICLES": "Автомобілі",
+        "INFO_SPECIAL_EQUIPMENT": "Спеціальна Техніка",
+        "LINK_TOTAL_CHARTS": "Перейти до Сумарних Графіків"
     },
     "HEADER": {
         "TITLE": "Втрати росії",
