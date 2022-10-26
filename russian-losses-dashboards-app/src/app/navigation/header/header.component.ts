@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +8,33 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  public langVal: string = 'EN';
+
   @Output() public sidenavToggle = new EventEmitter();
 
-  constructor() { }
+  constructor(private translate: TranslateService) {
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('en');
+
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use('en');
+   }
 
   ngOnInit(): void {
   }
 
   public onToggleSidenav = () => { 
     this.sidenavToggle.emit();
+  }
+
+  onClick(){
+    if (this.translate.currentLang == 'ua') {
+      this.translate.use('en');
+      this.langVal = 'EN';
+    }
+    else {
+      this.translate.use('ua');
+      this.langVal = 'UA';
+    }
   }
 }
