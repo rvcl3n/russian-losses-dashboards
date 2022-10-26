@@ -240,7 +240,7 @@ export class HomeComponent implements OnInit {
         this.currentLossesChart.data.datasets[0].data = this.mlrsArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.MLRSChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.MLRSChartBorderColor;
-        translationVal = ChartProps.MLRSChartBorderColor;
+        translationVal = ChartProps.MLRSTranslationTitle;
         break;
       }
       case "ADF": {
