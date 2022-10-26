@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import data from '../../../../russian-losses.json';
 import { ChartProps } from '../helpers/chart-props';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -55,6 +56,26 @@ export class HomeComponent implements OnInit {
   public warShipsArray = new Array();
   public vehiclesArray = new Array();
   public specialEquipmentArray = new Array();
+
+  public dashTitle: string;
+
+  constructor(private translate: TranslateService)
+  {
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('en');
+
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use('en');
+
+    this.translate.onLangChange.subscribe(()=> 
+    {
+      this.translate.get('HOME.LINE_TITLE').subscribe((result: string) => 
+      {
+        this.currentLossesChart.data.datasets[0].label = result;
+        this.currentLossesChart.update();
+      });
+    });
+  }
 
 
   ngOnInit(): void {
@@ -160,7 +181,7 @@ export class HomeComponent implements OnInit {
         labels: this.datesArray, 
 	       datasets: [
           {
-            label: "Troops Losses",
+            label: this.dashTitle,
             data: this.pesonnelArray,
             backgroundColor: ChartProps.PersonnelBGColor,
             borderColor: ChartProps.PersonnelBorderColor
@@ -172,6 +193,13 @@ export class HomeComponent implements OnInit {
         aspectRatio: 2,
       }     
     });
+
+    this.translate.get('HOME.DASHBOARDTITLE').subscribe((result: string) => 
+    {
+      this.dashTitle = result;
+      console.log(result);
+    });
+
   }
 
   public onListClick(lossesType: string) {
@@ -265,6 +293,5 @@ export class HomeComponent implements OnInit {
     this.currentLossesChart.data.datasets[0].label = lossesType + ' Losses';
     
     this.currentLossesChart.update();
-
   }
 }
