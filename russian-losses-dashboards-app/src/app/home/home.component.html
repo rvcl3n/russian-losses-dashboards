@@ -1,28 +1,28 @@
 <div class="center-content">
 <div class="info">
   <div class="bhead">
-  <h1>Russia's Losses: {{date}}</h1>
+  <h1>{{ 'HOME.INFO_LOSSES' | translate }}: {{date}}</h1>
   </div>
   <hr/>
   <ul>
-    <li matTooltip="Show Personnel Losses" (click)="onListClick('Personnel')">Personnel: {{personnel}} <div [innerHTML]="personnelDelta" class="delta"></div></li>
-    <li matTooltip="Show Tanks Losses" (click)="onListClick('Tanks')">Tanks: {{tanks}} <div [innerHTML]="tanksDelta" class="delta"></div></li>
-    <li matTooltip="Show AFV Losses" (click)="onListClick('AFV')">AFV: {{afv}} <div [innerHTML]="afvDelta" class="delta"></div></li>
-    <li matTooltip="Show Artillery Losses" (click)="onListClick('Artillery')">Artillery: {{artillery}} <div [innerHTML]="artilleryDelta" class="delta"></div></li>
-    <li matTooltip="Show MLRS Losses" (click)="onListClick('MLRS')">MLRS: {{mlrs}} <div [innerHTML]="artilleryDelta" class="delta"></div></li>
-    <li matTooltip="Show ADF Losses" (click)="onListClick('ADF')">ADF: {{adf}} <div [innerHTML]="adfDelta" class="delta"></div></li>
-    <li matTooltip="Show Jets Losses" (click)="onListClick('Jets')">Jets: {{jets}} <div [innerHTML]="jetsDelta" class="delta"></div></li>
-    <li matTooltip="Show Helicopters Losses" (click)="onListClick('Helicopters')">Helicopters: {{helicopters}} <div [innerHTML]="helicoptersDelta" class="delta"></div></li>
-    <li matTooltip="Show UAV Losses" (click)="onListClick('UAV')">UAV: {{uav}} <div [innerHTML]="uavDelta" class="delta"></div></li>
-    <li matTooltip="Show Cruise Missiles Losses" (click)="onListClick('Cruise Missiles')">Cruise Missiles: {{cruiseMissiles}} <div [innerHTML]="cruiseMissilesDelta" class="delta"></div></li>
-    <li matTooltip="Show War Ships Losses" (click)="onListClick('War Ships')">War Ships: {{warShips}} <div [innerHTML]="warShipsDelta" class="delta"></div></li>
-    <li matTooltip="Show Vehicles Losses" (click)="onListClick('Vehicles')">Vehicles: {{vehicles}} <div [innerHTML]="vehiclesDelta" class="delta"></div></li>
-    <li matTooltip="Show Special Equipment Losses" (click)="onListClick('Special Equipment')">Special Equipment: {{specialEquipment}} <div [innerHTML]="specialEquipmentDelta" class="delta"></div></li>
+    <li matTooltip="Show Personnel Losses" (click)="onListClick('Personnel')">{{ 'HOME.INFO_PERSONNEL' | translate }}: {{personnel}} <div [innerHTML]="personnelDelta" class="delta"></div></li>
+    <li matTooltip="Show Tanks Losses" (click)="onListClick('Tanks')">{{ 'HOME.INFO_TANKS' | translate }}: {{tanks}} <div [innerHTML]="tanksDelta" class="delta"></div></li>
+    <li matTooltip="Show AFV Losses" (click)="onListClick('AFV')">{{ 'HOME.INFO_AFV' | translate }}: {{afv}} <div [innerHTML]="afvDelta" class="delta"></div></li>
+    <li matTooltip="Show Artillery Losses" (click)="onListClick('Artillery')">{{ 'HOME.INFO_ARTILLERY' | translate }}: {{artillery}} <div [innerHTML]="artilleryDelta" class="delta"></div></li>
+    <li matTooltip="Show MLRS Losses" (click)="onListClick('MLRS')">{{ 'HOME.INFO_MLRS' | translate }}: {{mlrs}} <div [innerHTML]="artilleryDelta" class="delta"></div></li>
+    <li matTooltip="Show ADF Losses" (click)="onListClick('ADF')">{{ 'HOME.INFO_ADF' | translate }}: {{adf}} <div [innerHTML]="adfDelta" class="delta"></div></li>
+    <li matTooltip="Show Jets Losses" (click)="onListClick('Jets')">{{ 'HOME.INFO_JETS' | translate }}: {{jets}} <div [innerHTML]="jetsDelta" class="delta"></div></li>
+    <li matTooltip="Show Helicopters Losses" (click)="onListClick('Helicopters')">{{ 'HOME.INFO_HELICOPTERS' | translate }}: {{helicopters}} <div [innerHTML]="helicoptersDelta" class="delta"></div></li>
+    <li matTooltip="Show UAV Losses" (click)="onListClick('UAV')">{{ 'HOME.INFO_UAV' | translate }}: {{uav}} <div [innerHTML]="uavDelta" class="delta"></div></li>
+    <li matTooltip="Show Cruise Missiles Losses" (click)="onListClick('Cruise Missiles')">{{ 'HOME.INFO_CRUISE_MISSILES' | translate }}: {{cruiseMissiles}} <div [innerHTML]="cruiseMissilesDelta" class="delta"></div></li>
+    <li matTooltip="Show War Ships Losses" (click)="onListClick('War Ships')">{{ 'HOME.INFO_WAR_SHIPS' | translate }}: {{warShips}} <div [innerHTML]="warShipsDelta" class="delta"></div></li>
+    <li matTooltip="Show Vehicles Losses" (click)="onListClick('Vehicles')">{{ 'HOME.INFO_VEHICLES' | translate }}: {{vehicles}} <div [innerHTML]="vehiclesDelta" class="delta"></div></li>
+    <li matTooltip="Show Special Equipment Losses" (click)="onListClick('Special Equipment')">{{ 'HOME.INFO_SPECIAL_EQUIPMENT' | translate }}: {{specialEquipment}} <div [innerHTML]="specialEquipmentDelta" class="delta"></div></li>
   </ul>
 </div>
 <div class="current-losses-container">
   <div class="bhead">
-    <h1>Losses for last 90 days</h1>
+    <h1>{{ 'HOME.DASHBOARD_TITLE' | translate }}</h1>
     </div>
     <hr/>
   <canvas id="CurrentLossesChart">{{ currentLossesChart }}</canvas>
@@ -33,6 +33,6 @@
 <br/>
 
 <div class="link">
-  <a routerLink="/totallosses">Go to Total Charts</a>
+  <a routerLink="/totallosses">{{ 'HOME.LINK_TOTAL_CHARTS' | translate }}</a>
 </div>
       

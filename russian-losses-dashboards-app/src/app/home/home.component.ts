@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import data from '../../../../russian-losses.json';
 import { ChartProps } from '../helpers/chart-props';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -55,6 +56,26 @@ export class HomeComponent implements OnInit {
   public warShipsArray = new Array();
   public vehiclesArray = new Array();
   public specialEquipmentArray = new Array();
+
+  public dashTitle: string;
+
+  constructor(private translate: TranslateService)
+  {
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('en');
+
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use('en');
+
+    this.translate.onLangChange.subscribe(()=> 
+    {
+      this.currentLossesChart.data.datasets[0].label = this.translate.instant('HOME.INFO_PERSONNEL');
+      this.currentLossesChart.data.datasets[0].data = this.pesonnelArray;
+      this.currentLossesChart.data.datasets[0].backgroundColor =  ChartProps.PersonnelBGColor;
+      this.currentLossesChart.data.datasets[0].borderColor =  ChartProps.PersonnelBorderColor;
+      this.currentLossesChart.update();
+    });
+  }
 
 
   ngOnInit(): void {
@@ -160,7 +181,7 @@ export class HomeComponent implements OnInit {
         labels: this.datesArray, 
 	       datasets: [
           {
-            label: "Troops Losses",
+            label: this.dashTitle,
             data: this.pesonnelArray,
             backgroundColor: ChartProps.PersonnelBGColor,
             borderColor: ChartProps.PersonnelBorderColor
@@ -172,9 +193,18 @@ export class HomeComponent implements OnInit {
         aspectRatio: 2,
       }     
     });
+
+    this.translate.get('HOME.DASHBOARDTITLE').subscribe((result: string) => 
+    {
+      this.dashTitle = result;
+      console.log(result);
+    });
+
   }
 
   public onListClick(lossesType: string) {
+
+    let translationVal: string = '';
 
     switch(lossesType)
     {
@@ -182,78 +212,91 @@ export class HomeComponent implements OnInit {
         this.currentLossesChart.data.datasets[0].data = this.pesonnelArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.PersonnelBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.PersonnelBorderColor;
+        translationVal = ChartProps.PersonnelTranslationTitle;
         break;
       }
       case "Tanks": {
         this.currentLossesChart.data.datasets[0].data = this.tanksArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.TanksChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.TanksChartBorderColor;
+        translationVal = ChartProps.TanksTranslationTitle;
         break;
       }
       case "AFV": {
         this.currentLossesChart.data.datasets[0].data = this.afvArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.AFVChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.AFVChartBorderColor;
+        translationVal = ChartProps.AFVTranslationTitle;
         break;
       }
       case "Artillery": {
         this.currentLossesChart.data.datasets[0].data = this.artilleryArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.ArtilleryChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.ArtilleryChartBorderColor;
+        translationVal = ChartProps.ArtilleryTranslationTitle;
         break;
       }
       case "MLRS": {
         this.currentLossesChart.data.datasets[0].data = this.mlrsArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.MLRSChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.MLRSChartBorderColor;
+        translationVal = ChartProps.MLRSChartBorderColor;
         break;
       }
       case "ADF": {
         this.currentLossesChart.data.datasets[0].data = this.adfArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.ADFChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.ADFChartBorderColor;
+        translationVal = ChartProps.ADFTranslationTitle;
         break;
       }
       case "Jets": {
         this.currentLossesChart.data.datasets[0].data = this.jetsArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.JetsChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.JetsChartBorderColor;
+        translationVal = ChartProps.JetsTranslationTitle;
         break;
       }
       case "Helicopters": {
         this.currentLossesChart.data.datasets[0].data = this.helicoptersArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.HelicoptersChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.HelicoptersChartBorderColor;
+        translationVal = ChartProps.HelicoptersTranslationTitle;
         break;
       }
       case "UAV": {
         this.currentLossesChart.data.datasets[0].data = this.uavArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.UAVChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.UAVChartBorderColor;
+        translationVal = ChartProps.UAVTranslationTitle;
         break;
       }
       case "Cruise Missiles": {
         this.currentLossesChart.data.datasets[0].data = this.cruiseMissilesArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.CruiseMissilesChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.CruiseMissilesChartBorderColor;
+        translationVal = ChartProps.CruiseMissilesTranslationTitle;
         break;
       }
       case "War Ships": {
         this.currentLossesChart.data.datasets[0].data = this.warShipsArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.WarShipsChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.WarShipsChartBorderColor;
+        translationVal = ChartProps.WarShipsTranslationTitle;
         break;
       }
       case "Vehicles": {
         this.currentLossesChart.data.datasets[0].data = this.vehiclesArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.VehiclesChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.VehiclesChartBorderColor;
+        translationVal = ChartProps.VehiclesTranslationTitle;
         break;
       }
       case "Special Equipment": {
         this.currentLossesChart.data.datasets[0].data = this.specialEquipmentArray;
         this.currentLossesChart.data.datasets[0].backgroundColor = ChartProps.SpecialEquipmentChartBGColor;
         this.currentLossesChart.data.datasets[0].borderColor = ChartProps.SpecialEquipmentChartBorderColor;
+        translationVal = ChartProps.SpecialEquipmentTranslationTitle;
         break;
       }
       default: {
@@ -262,9 +305,10 @@ export class HomeComponent implements OnInit {
       }
     }
 
-    this.currentLossesChart.data.datasets[0].label = lossesType + ' Losses';
+    let header = this.translate.instant("HOME.INFO_" + translationVal);
+
+    this.currentLossesChart.data.datasets[0].label =  header;
     
     this.currentLossesChart.update();
-
   }
 }

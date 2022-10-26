@@ -1,0 +1,25 @@
+{
+    "HOME": {
+        "DASHBOARD_TITLE": "Losses for last 90 days",
+        "LINE_TITLE": "Troops",
+        "INFO_LOSSES": "Russia's Losses",
+        "INFO_PERSONNEL": "Personnel",
+        "INFO_TANKS": "Tanks",
+        "INFO_AFV": "AFV",
+        "INFO_ARTILLERY": "Artillery",
+        "INFO_MLRS": "MLRS",
+        "INFO_ADF": "ADF",
+        "INFO_JETS": "Jets",
+        "INFO_HELICOPTERS": "Helicopters",
+        "INFO_UAV": "UAV",
+        "INFO_CRUISE_MISSILES": "Cruise Missiles",
+        "INFO_WAR_SHIPS": "War Ships",
+        "INFO_VEHICLES": "Vehicles",
+        "INFO_SPECIAL_EQUIPMENT": "Special Equipment",
+        "LINK_TOTAL_CHARTS": "Go to Total Charts"
+    },
+    "HEADER": {
+        "TITLE": "Russia's Losses",
+        "SOURCES": "Sources"
+    }
+}

@@ -25,7 +25,7 @@ export class MonthlyLossesComponent implements OnInit {
     let vehiclesMap = new Map<string, number>();
     let artilleryMap = new Map<string, number>();
 
-    for (var key in data) {
+    for (let key in data) {
 
       if (troopsMap.get((data[key]['date'].split('-'))[1]))
       {

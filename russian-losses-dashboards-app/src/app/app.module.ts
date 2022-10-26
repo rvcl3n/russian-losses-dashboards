@@ -14,6 +14,9 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import { TotalLossesComponent } from './total-losses/total-losses.component';
 import { MonthlyLossesComponent } from './monthly-losses/monthly-losses.component';
 import { SourcesComponent } from './sources/sources.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,9 +35,22 @@ import { SourcesComponent } from './sources/sources.component';
     RoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [ HttpClient ]
+      }
+  })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

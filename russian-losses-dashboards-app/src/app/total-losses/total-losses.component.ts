@@ -58,7 +58,7 @@ export class TotalLossesComponent implements OnInit {
             },
             zoom: {
               wheel: {
-                enabled: true,
+                enabled: false,
               },
               pinch: {
                 enabled: true
@@ -154,7 +154,7 @@ export class TotalLossesComponent implements OnInit {
             },
             zoom: {
               wheel: {
-                enabled: true,
+                enabled: false,
               },
               pinch: {
                 enabled: true
@@ -234,7 +234,7 @@ export class TotalLossesComponent implements OnInit {
             },
             zoom: {
               wheel: {
-                enabled: true,
+                enabled: false,
               },
               pinch: {
                 enabled: true
@@ -248,5 +248,15 @@ export class TotalLossesComponent implements OnInit {
         }
       }     
     });
+  }
+
+  public chartOnClick = (chart: any) => {
+    if (chart.options.plugins.zoom.zoom.wheel.enabled == true){
+      chart.options.plugins.zoom.zoom.wheel.enabled = false;
+    }
+    else {
+      chart.options.plugins.zoom.zoom.wheel.enabled = true;
+    }
+    chart.update();
   }
 }

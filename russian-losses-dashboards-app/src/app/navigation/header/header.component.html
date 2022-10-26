@@ -5,12 +5,15 @@
         </button>
     </div>
     <div>
-        <a routerLink="/home">Russia's Losses</a>
+        <a routerLink="/home">{{ 'HEADER.TITLE' | translate }}</a>
     </div>
     <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
         <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+            <li (click)="onClick()">
+                {{langVal}}
+            </li>
             <li>
-                <a routerLink="/sources">Sources</a>
+                <a routerLink="/sources">{{ 'HEADER.SOURCES' | translate }}</a>
             </li>
         </ul>
     </div>
