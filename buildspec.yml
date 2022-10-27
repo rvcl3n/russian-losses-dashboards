@@ -18,6 +18,8 @@ phases:
     commands:
         - echo Build started 
         - ng build
+        - cp src/assets/i18n/en.json dist
+        - cp src/assets/i18n/ua.json dist
 artifacts:
     files:
         - '**/*'
