@@ -21,5 +21,11 @@
     "HEADER": {
         "TITLE": "Втрати росії",
         "SOURCES": "Джерела"
+    },
+    "NAVBAR": {
+        "CURRENT_LOSSES": "Поточні Втрати",
+        "TOTAL_LOSSES": "Сумарні Втрати",
+        "MONTHLY_LOSSES": "Втрати По Місяцях",
+        "SOURCES": "Джерела"
     }
 }

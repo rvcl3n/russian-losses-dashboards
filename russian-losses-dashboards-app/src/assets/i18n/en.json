@@ -21,5 +21,11 @@
     "HEADER": {
         "TITLE": "Russia's Losses",
         "SOURCES": "Sources"
+    },
+    "NAVBAR": {
+        "CURRENT_LOSSES": "Current Losses",
+        "TOTAL_LOSSES": "Total Losses",
+        "MONTHLY_LOSSES": "Monthly Losses",
+        "SOURCES": "Sources"
     }
 }
