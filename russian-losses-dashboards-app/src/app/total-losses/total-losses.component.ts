@@ -3,6 +3,7 @@ import Chart from 'chart.js/auto';
 import zoomPlugin from 'chartjs-plugin-zoom';
 import * as data from '../../../../russian-losses.json';
 import { ChartProps } from '../helpers/chart-props';
+import { TranslateService } from '@ngx-translate/core';
 Chart.register(zoomPlugin);
 
 @Component({
@@ -17,6 +18,38 @@ export class TotalLossesComponent implements OnInit {
   public airForcesChart: any;
 
   aspectRatioValue: number;
+
+  constructor(private translate: TranslateService) 
+  {
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('en');
+
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use('en');
+
+    this.translate.onLangChange.subscribe(()=> 
+    {
+      this.troopsChart.data.datasets[0].label = this.translate.instant('TOTALLOSSES.LINE_PERSONNEL');
+
+      this.groundForcesChart.data.datasets[0].label = this.translate.instant('TOTALLOSSES.LINE_TANKS');
+      this.groundForcesChart.data.datasets[1].label = this.translate.instant('TOTALLOSSES.LINE_AFV');
+      this.groundForcesChart.data.datasets[2].label = this.translate.instant('TOTALLOSSES.LINE_ARTILLERY');
+      this.groundForcesChart.data.datasets[3].label = this.translate.instant('TOTALLOSSES.LINE_MLRS');
+      this.groundForcesChart.data.datasets[4].label = this.translate.instant('TOTALLOSSES.LINE_ADF');
+      this.groundForcesChart.data.datasets[5].label = this.translate.instant('TOTALLOSSES.LINE_VEHICLES');
+      this.groundForcesChart.data.datasets[6].label = this.translate.instant('TOTALLOSSES.LINE_SPECIAL_EQUIPMENT');
+
+      this.airForcesChart.data.datasets[0].label = this.translate.instant('TOTALLOSSES.LINE_JETS');
+      this.airForcesChart.data.datasets[1].label = this.translate.instant('TOTALLOSSES.LINE_HELICOPTERS');
+      this.airForcesChart.data.datasets[2].label = this.translate.instant('TOTALLOSSES.LINE_UAV');
+      this.airForcesChart.data.datasets[3].label = this.translate.instant('TOTALLOSSES.LINE_CRUISE_MISSILES');
+      this.airForcesChart.data.datasets[4].label = this.translate.instant('TOTALLOSSES.LINE_WAR_SHIPS');
+
+      this.troopsChart.update();
+      this.groundForcesChart.update();
+      this.airForcesChart.update();
+    });
+  }
 
   ngOnInit(): void {
     this.createTroopsChart();

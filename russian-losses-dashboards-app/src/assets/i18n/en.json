@@ -27,5 +27,23 @@
         "TOTAL_LOSSES": "Total Losses",
         "MONTHLY_LOSSES": "Monthly Losses",
         "SOURCES": "Sources"
+    },
+    "TOTALLOSSES": {
+        "PERSONNEL_LOSSES": "Personnel Losses",
+        "GROUND_FORCES_LOSSES": "Ground Forces Losses",
+        "AIR_NAVAL_FORCES_LOSSES": "Air Forces Losses (+Naval)",
+        "LINE_PERSONNEL": "Personnel",
+        "LINE_TANKS": "Tanks",
+        "LINE_AFV": "AFV",
+        "LINE_ARTILLERY": "Artillery",
+        "LINE_MLRS": "MLRS",
+        "LINE_ADF": "ADF",
+        "LINE_JETS": "Jets",
+        "LINE_HELICOPTERS": "Helicopters",
+        "LINE_UAV": "UAV",
+        "LINE_CRUISE_MISSILES": "Cruise Missiles",
+        "LINE_WAR_SHIPS": "War Ships",
+        "LINE_VEHICLES": "Vehicles",
+        "LINE_SPECIAL_EQUIPMENT": "Special Equipment"
     }
 }

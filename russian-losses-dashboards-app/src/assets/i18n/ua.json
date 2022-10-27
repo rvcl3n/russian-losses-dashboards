@@ -27,5 +27,23 @@
         "TOTAL_LOSSES": "Сумарні Втрати",
         "MONTHLY_LOSSES": "Втрати По Місяцях",
         "SOURCES": "Джерела"
+    },
+    "TOTALLOSSES": {
+        "PERSONNEL_LOSSES": "Втрати Особового Складу",
+        "GROUND_FORCES_LOSSES": "Втрати наземних сил",
+        "AIR_NAVAL_FORCES_LOSSES": "Втрати повітряних сил(+Військово-морські)",
+        "LINE_PERSONNEL": "Особовий склад",
+        "LINE_TANKS": "Танки",
+        "LINE_AFV": "Бронетехніка",
+        "LINE_ARTILLERY": "Артилерія",
+        "LINE_MLRS": "РСЗВ",
+        "LINE_ADF": "ППО",
+        "LINE_JETS": "Літаки",
+        "LINE_HELICOPTERS": "Гелікоптери",
+        "LINE_UAV": "БПЛА",
+        "LINE_CRUISE_MISSILES": "Крилаті Ракети",
+        "LINE_WAR_SHIPS": "Кораблі",
+        "LINE_VEHICLES": "Автомобілі",
+        "LINE_SPECIAL_EQUIPMENT": "Спеціальна Техніка"
     }
 }

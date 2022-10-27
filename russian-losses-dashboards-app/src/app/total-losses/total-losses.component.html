@@ -1,17 +1,17 @@
 <div class="total-losses-container">
-    <h1>Troops Losses</h1>
+    <h1>{{ 'TOTALLOSSES.PERSONNEL_LOSSES' | translate }}</h1>
     <hr/>
     <canvas id="TroopsLossesChart" (click)="chartOnClick(troopsChart)">{{ troopsChart }}</canvas>
 </div>
 <br/>
 <div class="total-losses-container">
-    <h1>Ground Forces Losses</h1>
+    <h1>{{ 'TOTALLOSSES.GROUND_FORCES_LOSSES' | translate }}</h1>
     <hr/>
     <canvas id="GroundForcesLossesChart" (click)="chartOnClick(groundForcesChart)">{{ groundForcesChart }}</canvas>
 </div>
 <br/>
 <div class="total-losses-container">
-    <h1>Air Forces Losses (+Naval)</h1>
+    <h1>{{ 'TOTALLOSSES.AIR_NAVAL_FORCES_LOSSES' | translate }}</h1>
     <hr/>
     <canvas id="AirForcesLossesChart" (click)="chartOnClick(airForcesChart)">{{ airForcesChart }}</canvas>
 </div>
