@@ -25,4 +25,4 @@ artifacts:
     files:
         - '**/*'
     base-directory: 'russian-losses-dashboards-app/dist*'
-    discard-paths: yes
+    discard-paths: no
