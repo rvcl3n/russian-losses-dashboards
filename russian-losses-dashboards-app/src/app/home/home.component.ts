@@ -175,13 +175,15 @@ export class HomeComponent implements OnInit {
       this.specialEquipmentArray.push(data[i]['specialEquipment']);
     }
 
+    const chartLabel: string = this.translate.instant('HOME.INFO_PERSONNEL');
+
     this.currentLossesChart = new Chart("CurrentLossesChart", {
       type: 'line', //this denotes tha type of chart
       data: {// values on X-Axis
         labels: this.datesArray, 
 	       datasets: [
           {
-            label: this.dashTitle,
+            label: chartLabel,
             data: this.pesonnelArray,
             backgroundColor: ChartProps.PersonnelBGColor,
             borderColor: ChartProps.PersonnelBorderColor
@@ -193,13 +195,6 @@ export class HomeComponent implements OnInit {
         aspectRatio: 2,
       }     
     });
-
-    this.translate.get('HOME.DASHBOARDTITLE').subscribe((result: string) => 
-    {
-      this.dashTitle = result;
-      console.log(result);
-    });
-
   }
 
   public onListClick(lossesType: string) {
