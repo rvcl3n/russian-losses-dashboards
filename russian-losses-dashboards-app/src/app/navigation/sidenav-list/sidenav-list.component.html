@@ -5,7 +5,7 @@
     <a mat-list-item routerLink="/totallosses" (click)="onSidenavClose()">
         <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">{{ 'NAVBAR.TOTAL_LOSSES' | translate }}</span>   
     </a>
-    <a mat-list-item routerLink="/monthlylosses" (click)="onSidenavClose()">
+    <a mat-list-item routerLink="/monthlylosses" (click)="onSidenavClose()" fxHide.xs>
         <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">{{ 'NAVBAR.MONTHLY_LOSSES' | translate }}</span>   
     </a>
     <a mat-list-item routerLink="/sources" (click)="onSidenavClose()">
