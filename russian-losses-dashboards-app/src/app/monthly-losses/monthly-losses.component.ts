@@ -17,19 +17,27 @@ export class MonthlyLossesComponent implements OnInit {
 
   constructor(private translate: TranslateService)
   {
-        // this language will be used as a fallback when a translation isn't found in the current language
+    // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');
 
-        // the lang to use, if the lang isn't available, it will use the current loader to get them
-    translate.use('en');
+    if (localStorage.getItem('locale'))
+    {
+      const locale = localStorage.getItem('locale') ?? 'en';
+
+      translate.use(locale);
+    }
+    else
+    {
+      translate.use('en');
+    }
 
     this.translate.onLangChange.subscribe(()=> 
     {
       this.chart.data.datasets[0].label = this.translate.instant('MONTHLY.LINE_PERSONNEL');
       this.chart.data.datasets[1].label = this.translate.instant('MONTHLY.LINE_TANKS');
-      this.chart.data.datasets[2].label = this.translate.instant('TOTALLOSSES.LINE_AFV');
-      this.chart.data.datasets[3].label = this.translate.instant('TOTALLOSSES.LINE_VEHICLES');
-      this.chart.data.datasets[4].label = this.translate.instant('TOTALLOSSES.LINE_ARTILLERY');
+      this.chart.data.datasets[2].label = this.translate.instant('MONTHLY.LINE_AFV');
+      this.chart.data.datasets[3].label = this.translate.instant('MONTHLY.LINE_VEHICLES');
+      this.chart.data.datasets[4].label = this.translate.instant('MONTHLY.LINE_ARTILLERY');
 
       this.chart.update();
     });

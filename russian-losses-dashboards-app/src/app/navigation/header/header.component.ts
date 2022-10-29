@@ -16,8 +16,18 @@ export class HeaderComponent implements OnInit {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');
 
-    // the lang to use, if the lang isn't available, it will use the current loader to get them
-    translate.use('en');
+    if (localStorage.getItem('locale'))
+    {
+      const locale = localStorage.getItem('locale') ?? 'en';
+
+      translate.use(locale);
+
+      this.langVal = locale == "ua" ? "UA" : "EN";
+    }
+    else
+    {
+      translate.use('en');
+    }
    }
 
   ngOnInit(): void {
@@ -31,10 +41,12 @@ export class HeaderComponent implements OnInit {
     if (this.translate.currentLang == 'ua') {
       this.translate.use('en');
       this.langVal = 'EN';
+      localStorage.setItem('locale','en');
     }
     else {
       this.translate.use('ua');
       this.langVal = 'UA';
+      localStorage.setItem('locale','ua');
     }
   }
 }

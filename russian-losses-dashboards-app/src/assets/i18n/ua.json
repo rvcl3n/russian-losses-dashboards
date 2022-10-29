@@ -54,10 +54,10 @@
         "CONTACT": "Якщо ви знайши помилку в даних або маєте будь-які пропозиції будь ласка пишіть мені у Твіттері"
     },
     "MONTHLY": {
-        "LINE_PERSONNEL": "Personnel",
-        "LINE_TANKS": "Tanks",
-        "LINE_AFV": "AFV",
-        "LINE_VEHICLES": "Vehicles",
-        "LINE_ARTILLERY": "Artillery"
+        "LINE_PERSONNEL": "Особовий склад",
+        "LINE_TANKS": "Танки",
+        "LINE_AFV": "Бронетехніка",
+        "LINE_VEHICLES": "Автомобілі",
+        "LINE_ARTILLERY": "Артилерія"
     }
 }
