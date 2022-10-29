@@ -10,7 +10,7 @@
     <div fxFlex fxLayout fxLayoutAlign="end">
         <ul fxLayout fxLayoutGap="15px" class="navigation-items">
             <li (click)="onClick()">
-                {{langVal}}
+                <div class="lang">{{ langVal }}</div>
             </li>
             <li>
                 <a routerLink="/sources">{{ 'HEADER.SOURCES' | translate }}</a>

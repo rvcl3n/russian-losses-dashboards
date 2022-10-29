@@ -17,6 +17,11 @@ mat-toolbar{
     border-radius: 0px;
 }
 
+.lang:hover {
+    cursor: pointer;
+    color: #dad8d8;
+}
+
 @media(max-width: 959px){
     mat-toolbar{
         border-radius: 0px;
