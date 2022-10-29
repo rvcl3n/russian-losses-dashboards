@@ -68,13 +68,15 @@ export class TotalLossesComponent implements OnInit {
       pesonnelArray.push(data[key]['personnel']);
     }
 
+    const troopsLabel: string = this.translate.instant('TOTALLOSSES.LINE_PERSONNEL');
+
     this.troopsChart = new Chart("TroopsLossesChart", {
       type: 'line', //this denotes tha type of chart
       data: {// values on X-Axis
         labels: datesArray, 
 	       datasets: [
           {
-            label: "Troops Losses",
+            label: troopsLabel,
             data: pesonnelArray,
             backgroundColor: ChartProps.PersonnelBGColor,
             borderColor: ChartProps.PersonnelBorderColor
@@ -128,49 +130,57 @@ export class TotalLossesComponent implements OnInit {
       specialEquipment.push(data[key]['specialEquipment']);
     }
 
+    const tanksLabel: string = this.translate.instant('TOTALLOSSES.LINE_TANKS');
+    const afvLabel: string = this.translate.instant('TOTALLOSSES.LINE_AFV');
+    const artilleryLabel: string = this.translate.instant('TOTALLOSSES.LINE_ARTILLERY');
+    const mlrsLabel: string = this.translate.instant('TOTALLOSSES.LINE_MLRS');
+    const adfLabel: string = this.translate.instant('TOTALLOSSES.LINE_ADF');
+    const vehiclesLabel: string = this.translate.instant('TOTALLOSSES.LINE_VEHICLES');
+    const specialEquipmentLabel: string = this.translate.instant('TOTALLOSSES.LINE_SPECIAL_EQUIPMENT');
+
     this.groundForcesChart = new Chart("GroundForcesLossesChart", {
       type: 'line', //this denotes tha type of chart
       data: {// values on X-Axis
         labels: datesArray, 
 	       datasets: [
           {
-            label: "Tanks Losses",
+            label: tanksLabel,
             data: tanksArray,
             backgroundColor: ChartProps.TanksChartBGColor,
             borderColor: ChartProps.TanksChartBorderColor
           },
           {
-            label: "AFV Losses",
+            label: afvLabel,
             data: afvArray,
             backgroundColor: ChartProps.AFVChartBGColor,
             borderColor: ChartProps.ADFChartBorderColor
           },
           {
-            label: "Artillery Losses",
+            label: artilleryLabel,
             data: artilleryArray,
             backgroundColor: ChartProps.ArtilleryChartBGColor,
             borderColor: ChartProps.ArtilleryChartBorderColor
           },
           {
-            label: "MLRS Losses",
+            label: mlrsLabel,
             data: mlrsArray,
             backgroundColor: ChartProps.MLRSChartBGColor,
             borderColor: ChartProps.MLRSChartBorderColor
           },
           {
-            label: "ADF Losses",
+            label: adfLabel,
             data: adfArray,
             backgroundColor: ChartProps.ADFChartBGColor,
             borderColor: ChartProps.ADFChartBorderColor
           },
           {
-            label: "Vehicles Losses",
+            label: vehiclesLabel,
             data: vehicles,
             backgroundColor: ChartProps.VehiclesChartBGColor,
             borderColor: ChartProps.VehiclesChartBorderColor
           },
           {
-            label: "Special Equipment Losses",
+            label: specialEquipmentLabel,
             data: specialEquipment,
             backgroundColor: ChartProps.SpecialEquipmentChartBGColor,
             borderColor: ChartProps.SpecialEquipmentChartBorderColor
@@ -220,37 +230,43 @@ export class TotalLossesComponent implements OnInit {
       warShips.push(data[key]['warShips']);
     }
 
+    const jetsLabel: string = this.translate.instant('TOTALLOSSES.LINE_JETS');
+    const helicoptersLabel: string = this.translate.instant('TOTALLOSSES.LINE_HELICOPTERS');
+    const uavLabel: string = this.translate.instant('TOTALLOSSES.LINE_UAV');
+    const cruiseMissilesLabel: string = this.translate.instant('TOTALLOSSES.LINE_CRUISE_MISSILES');
+    const warShipsLabel: string = this.translate.instant('TOTALLOSSES.LINE_WAR_SHIPS');
+
     this.airForcesChart = new Chart("AirForcesLossesChart", {
       type: 'line', //this denotes tha type of chart
       data: {// values on X-Axis
         labels: datesArray, 
 	       datasets: [
           {
-            label: "Jets Losses",
+            label: jetsLabel,
             data: jetsArray,
             backgroundColor: ChartProps.JetsChartBGColor,
             borderColor: ChartProps.JetsChartBorderColor
           },
           {
-            label: "Helicopters Losses",
+            label: helicoptersLabel,
             data: helicoptersArray,
             backgroundColor: ChartProps.HelicoptersChartBGColor,
             borderColor: ChartProps.HelicoptersChartBorderColor
           },
           {
-            label: "UAV Losses",
+            label: uavLabel,
             data: uavArray,
             backgroundColor: ChartProps.UAVChartBGColor,
             borderColor: ChartProps.UAVChartBorderColor
           },
           {
-            label: "Cruise Missiles Losses",
+            label: cruiseMissilesLabel,
             data: cruiseMissiles,
             backgroundColor: ChartProps.CruiseMissilesChartBGColor,
             borderColor: ChartProps.CruiseMissilesChartBorderColor
           },
           {
-            label: "War Ships Losses",
+            label: warShipsLabel,
             data: warShips,
             backgroundColor: ChartProps.WarShipsChartBGColor,
             borderColor: ChartProps.WarShipsChartBorderColor
