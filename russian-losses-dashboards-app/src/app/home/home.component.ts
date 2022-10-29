@@ -64,8 +64,16 @@ export class HomeComponent implements OnInit {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');
 
-    // the lang to use, if the lang isn't available, it will use the current loader to get them
-    translate.use('en');
+    if (localStorage.getItem('locale'))
+    {
+      const locale = localStorage.getItem('locale') ?? 'en';
+
+      translate.use(locale);
+    }
+    else
+    {
+      translate.use('en');
+    }
 
     this.translate.onLangChange.subscribe(()=> 
     {
@@ -175,13 +183,15 @@ export class HomeComponent implements OnInit {
       this.specialEquipmentArray.push(data[i]['specialEquipment']);
     }
 
+    const chartLabel: string = this.translate.instant('HOME.INFO_PERSONNEL');
+
     this.currentLossesChart = new Chart("CurrentLossesChart", {
       type: 'line', //this denotes tha type of chart
       data: {// values on X-Axis
         labels: this.datesArray, 
 	       datasets: [
           {
-            label: this.dashTitle,
+            label: chartLabel,
             data: this.pesonnelArray,
             backgroundColor: ChartProps.PersonnelBGColor,
             borderColor: ChartProps.PersonnelBorderColor
@@ -193,13 +203,6 @@ export class HomeComponent implements OnInit {
         aspectRatio: 2,
       }     
     });
-
-    this.translate.get('HOME.DASHBOARDTITLE').subscribe((result: string) => 
-    {
-      this.dashTitle = result;
-      console.log(result);
-    });
-
   }
 
   public onListClick(lossesType: string) {

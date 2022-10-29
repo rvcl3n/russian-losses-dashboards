@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import data from '../../../../russian-losses.json';
 import { ChartProps } from '../helpers/chart-props';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-monthly-losses',
@@ -13,6 +14,34 @@ export class MonthlyLossesComponent implements OnInit {
   public chart: any;
 
   barThickness: number = 30;
+
+  constructor(private translate: TranslateService)
+  {
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('en');
+
+    if (localStorage.getItem('locale'))
+    {
+      const locale = localStorage.getItem('locale') ?? 'en';
+
+      translate.use(locale);
+    }
+    else
+    {
+      translate.use('en');
+    }
+
+    this.translate.onLangChange.subscribe(()=> 
+    {
+      this.chart.data.datasets[0].label = this.translate.instant('MONTHLY.LINE_PERSONNEL');
+      this.chart.data.datasets[1].label = this.translate.instant('MONTHLY.LINE_TANKS');
+      this.chart.data.datasets[2].label = this.translate.instant('MONTHLY.LINE_AFV');
+      this.chart.data.datasets[3].label = this.translate.instant('MONTHLY.LINE_VEHICLES');
+      this.chart.data.datasets[4].label = this.translate.instant('MONTHLY.LINE_ARTILLERY');
+
+      this.chart.update();
+    });
+  }
 
   ngOnInit(): void {
     this.createChart();
@@ -83,6 +112,12 @@ export class MonthlyLossesComponent implements OnInit {
       }
     }
 
+    const troopsLabel: string = this.translate.instant('MONTHLY.LINE_PERSONNEL');
+    const tanksLabel: string = this.translate.instant('MONTHLY.LINE_TANKS');
+    const afvLabel: string = this.translate.instant('MONTHLY.LINE_AFV');
+    const vehiclesLabel: string = this.translate.instant('MONTHLY.LINE_VEHICLES');
+    const artilleryLabel: string = this.translate.instant('MONTHLY.LINE_ARTILLERY');
+
     this.chart = new Chart("LossesChart", {
       type: 'bar', //this denotes tha type of chart
 
@@ -90,31 +125,31 @@ export class MonthlyLossesComponent implements OnInit {
         labels: Array.from(troopsMap.keys()), 
 	       datasets: [
           {
-            label: "Troops Losses",
+            label: troopsLabel,
             data: Array.from(troopsMap.values()),
             backgroundColor: ChartProps.PersonnelBGColor,
             barThickness : this.barThickness
           },
           {
-            label: "Tanks Losses",
+            label: tanksLabel,
             data: Array.from(tanksMap.values()),
             backgroundColor: ChartProps.TanksChartBGColor,
             barThickness : this.barThickness
           },
           {
-            label: "AFV Losses",
+            label: afvLabel,
             data: Array.from(afvMap.values()),
             backgroundColor: ChartProps.AFVChartBGColor,
             barThickness : this.barThickness
           },
           {
-            label: "Vehicles Losses",
+            label: vehiclesLabel,
             data: Array.from(vehiclesMap.values()),
             backgroundColor: ChartProps.VehiclesChartBGColor,
             barThickness : this.barThickness
           },
           {
-            label: "Artillery Losses",
+            label: artilleryLabel,
             data: Array.from(artilleryMap.values()),
             backgroundColor: ChartProps.ArtilleryChartBGColor,
             barThickness : this.barThickness

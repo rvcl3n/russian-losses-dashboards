@@ -45,5 +45,19 @@
         "LINE_WAR_SHIPS": "War Ships",
         "LINE_VEHICLES": "Vehicles",
         "LINE_SPECIAL_EQUIPMENT": "Special Equipment"
+    },
+    "SOURCES": {
+        "TITLE": "Sources",
+        "LOSSES_SOURCES": "Losses Sources: General Staff of the Ukrainian Armed Forces official pages",
+        "LOSSES_DATASET": "The Losses Dataset",
+        "LOSSES_REPO": "The link to the project repository",
+        "CONTACT": "If you found an error in the data or have any suggestions please feel free to reach out to me on my twitter"
+    },
+    "MONTHLY": {
+        "LINE_PERSONNEL": "Personnel",
+        "LINE_TANKS": "Tanks",
+        "LINE_AFV": "AFV",
+        "LINE_VEHICLES": "Vehicles",
+        "LINE_ARTILLERY": "Artillery"
     }
 }
