@@ -52,5 +52,12 @@
         "LOSSES_DATASET": "The Losses Dataset",
         "LOSSES_REPO": "The link to the project repository",
         "CONTACT": "If you found an error in the data or have any suggestions please feel free to reach out to me on my twitter"
+    },
+    "MONTHLY": {
+        "LINE_PERSONNEL": "Personnel",
+        "LINE_TANKS": "Tanks",
+        "LINE_AFV": "AFV",
+        "LINE_VEHICLES": "Vehicles",
+        "LINE_ARTILLERY": "Artillery"
     }
 }
