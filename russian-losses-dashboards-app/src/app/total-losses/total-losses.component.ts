@@ -4,6 +4,7 @@ import zoomPlugin from 'chartjs-plugin-zoom';
 import * as data from '../../../../russian-losses.json';
 import { ChartProps } from '../helpers/chart-props';
 import { TranslateService } from '@ngx-translate/core';
+import { RestLossesService } from '../rest-losses.service';
 Chart.register(zoomPlugin);
 
 @Component({
@@ -16,10 +17,11 @@ export class TotalLossesComponent implements OnInit {
   public troopsChart: any;
   public groundForcesChart: any;
   public airForcesChart: any;
+  public restData: any;
 
   aspectRatioValue: number;
 
-  constructor(private translate: TranslateService) 
+  constructor(private translate: TranslateService, private restLossesService: RestLossesService) 
   {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');
@@ -60,20 +62,38 @@ export class TotalLossesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createTroopsChart();
+    //this.createTroopsChart();
     this.createVehiclesChart();
     this.createAirForcesChart();
+
+    this.restLossesService.getTotalLosses().subscribe(res => 
+      {
+        //let jsonResult = JSON.parse(res);
+        //console.log(jsonResult);
+        this.createTroopsChart(res['body']);
+      });
   }
 
-  createTroopsChart() {
+  createTroopsChart(restData: any) {
+
+
+    //this.restLossesService.getTotalLosses().subscribe(res => console.log(res));
+    /*this.restLossesService.getTotalLosses().subscribe(res => 
+      {
+        this.restData = res;
+        this.createTroopsChart();
+      });*/
+
+    //console.log(this.restData);
+
     let datesArray = new Array();
     let pesonnelArray = new Array();
     
     this.aspectRatioValue = window.innerWidth < 1000 ? 1.5 : 3;
  
-    for (let key in data) {
-      datesArray.push(data[key]['date']);
-      pesonnelArray.push(data[key]['personnel']);
+    for (let key in restData) {
+      datesArray.push(restData[key]['date']);
+      pesonnelArray.push(restData[key]['personnel']);
     }
 
     const troopsLabel: string = this.translate.instant('TOTALLOSSES.LINE_PERSONNEL');
