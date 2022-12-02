@@ -67,12 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "russian-losses-dashboards-app:build:production",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "russian-losses-dashboards-app:build:production"
             },
             "development": {
-              "browserTarget": "russian-losses-dashboards-app:build:development",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "russian-losses-dashboards-app:build:development"
             }
           },
           "defaultConfiguration": "development"

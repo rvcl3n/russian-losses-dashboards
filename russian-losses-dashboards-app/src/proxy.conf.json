@@ -1,6 +1,0 @@
-{
-    "/dynamodbmanager": {
-      "target": "https://lossesapi.warcharts.com",
-      "secure": true
-    }
-  }

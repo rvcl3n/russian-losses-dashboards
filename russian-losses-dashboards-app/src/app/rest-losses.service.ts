@@ -12,14 +12,10 @@ export class RestLossesService {
 
   private heroesUrl = 'https://lossesapi.warcharts.com/dynamodbmanager';  // URL to web api
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' , 'access-control-allow-origin' : '*'})
-  };
-
   constructor(private http: HttpClient) { }
 
   getTotalLosses(): Observable<any> {
-    return this.http.get<any>(this.heroesUrl, this.httpOptions)
+    return this.http.get<any>(this.heroesUrl)
       .pipe(
         tap(_ => this.log('fetched total losses')),
         catchError(this.handleError<any>('getHeroes', ''))
