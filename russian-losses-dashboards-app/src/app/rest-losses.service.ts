@@ -10,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class RestLossesService {
 
-  private heroesUrl = 'https://2630y0sow1.execute-api.eu-central-1.amazonaws.com/dev/dynamodbmanager';  // URL to web api
+  private heroesUrl = 'https://lossesapi.warcharts.com/dynamodbmanager';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' , 'access-control-allow-origin' : '*'})
