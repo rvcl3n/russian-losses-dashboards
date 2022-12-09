@@ -62,29 +62,15 @@ export class TotalLossesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.createTroopsChart();
-    this.createVehiclesChart();
-    this.createAirForcesChart();
-
     this.restLossesService.getTotalLosses().subscribe(res => 
       {
-        //let jsonResult = JSON.parse(res);
-        //console.log(jsonResult);
         this.createTroopsChart(res['body']);
+        this.createVehiclesChart(res['body']);
+        this.createAirForcesChart(res['body']);
       });
   }
 
   createTroopsChart(restData: any) {
-
-
-    //this.restLossesService.getTotalLosses().subscribe(res => console.log(res));
-    /*this.restLossesService.getTotalLosses().subscribe(res => 
-      {
-        this.restData = res;
-        this.createTroopsChart();
-      });*/
-
-    //console.log(this.restData);
 
     let datesArray = new Array();
     let pesonnelArray = new Array();
@@ -137,7 +123,7 @@ export class TotalLossesComponent implements OnInit {
     });
   }
 
-  createVehiclesChart() {
+  createVehiclesChart(restData: any) {
     let datesArray = new Array();
     let tanksArray = new Array();
     let afvArray = new Array();
@@ -147,15 +133,15 @@ export class TotalLossesComponent implements OnInit {
     let vehicles = new Array();
     let specialEquipment = new Array();
 
-    for (let key in data) {
-      datesArray.push(data[key]['date']);
-      tanksArray.push(data[key]['tanks']);
-      afvArray.push(data[key]['afv']);
-      artilleryArray.push(data[key]['artillery']);
-      mlrsArray.push(data[key]['mlrs']);
-      adfArray.push(data[key]['adf']);
-      vehicles.push(data[key]['vehicles']);
-      specialEquipment.push(data[key]['specialEquipment']);
+    for (let key in restData) {
+      datesArray.push(restData[key]['date']);
+      tanksArray.push(restData[key]['tanks']);
+      afvArray.push(restData[key]['afv']);
+      artilleryArray.push(restData[key]['artillery']);
+      mlrsArray.push(restData[key]['mlrs']);
+      adfArray.push(restData[key]['adf']);
+      vehicles.push(restData[key]['vehicles']);
+      specialEquipment.push(restData[key]['specialEquipment']);
     }
 
     const tanksLabel: string = this.translate.instant('TOTALLOSSES.LINE_TANKS');
@@ -241,7 +227,7 @@ export class TotalLossesComponent implements OnInit {
     });
   }
 
-  createAirForcesChart() {
+  createAirForcesChart(restData: any) {
     let datesArray = new Array();
     let jetsArray = new Array();
     let helicoptersArray = new Array();
@@ -249,13 +235,13 @@ export class TotalLossesComponent implements OnInit {
     let cruiseMissiles = new Array();
     let warShips = new Array();
 
-    for (let key in data) {
-      datesArray.push(data[key]['date']);     
-      jetsArray.push(data[key]['jets']);
-      helicoptersArray.push(data[key]['helicopters']);
-      uavArray.push(data[key]['uav']);
-      cruiseMissiles.push(data[key]['cruiseMissiles']);
-      warShips.push(data[key]['warShips']);
+    for (let key in restData) {
+      datesArray.push(restData[key]['date']);     
+      jetsArray.push(restData[key]['jets']);
+      helicoptersArray.push(restData[key]['helicopters']);
+      uavArray.push(restData[key]['uav']);
+      cruiseMissiles.push(restData[key]['cruiseMissiles']);
+      warShips.push(restData[key]['warShips']);
     }
 
     const jetsLabel: string = this.translate.instant('TOTALLOSSES.LINE_JETS');
