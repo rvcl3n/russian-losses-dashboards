@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import zoomPlugin from 'chartjs-plugin-zoom';
-import * as data from '../../../../russian-losses.json';
 import { ChartProps } from '../helpers/chart-props';
 import { TranslateService } from '@ngx-translate/core';
 import { RestLossesService } from '../rest-losses.service';

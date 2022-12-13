@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
-import data from '../../../../russian-losses.json';
 import { ChartProps } from '../helpers/chart-props';
 import { TranslateService } from '@ngx-translate/core';
+import { RestLossesService } from '../rest-losses.service';
 
 @Component({
   selector: 'app-home',
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
 
   public dashTitle: string;
 
-  constructor(private translate: TranslateService)
+  constructor(private translate: TranslateService, private restLossesService: RestLossesService)
   {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');
@@ -87,7 +87,19 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.restLossesService.getTotalLosses().subscribe(res => 
+      {
+        this.loadLossesForCurrentDay(res['body']);
+        this.createTroopsChart(res['body']);
+        //this.createVehiclesChart(res['body']);
+        //this.createAirForcesChart(res['body']);
+      });
 
+    
+  }
+
+  loadLossesForCurrentDay(data: any)
+  {
     const parsedDate = new Date(Date.parse(data[data.length - 1]['date']));
 
     this.date = parsedDate.getDate() + '.' + (parsedDate.getMonth() + 1) + '.' + parsedDate.getFullYear();
@@ -160,11 +172,9 @@ export class HomeComponent implements OnInit {
     if (data[data.length - 1]['specialEquipmentDelta']) {
       this.specialEquipmentDelta = '(+' + data[data.length - 1]['specialEquipmentDelta'] + ')';
     }
-
-    this.createTroopsChart();
   }
 
-  createTroopsChart() {
+  createTroopsChart(data: any) {
     for (let i = data.length - 90; i < data.length; i+=3)
     {
       this.datesArray.push(data[i]['date']);
