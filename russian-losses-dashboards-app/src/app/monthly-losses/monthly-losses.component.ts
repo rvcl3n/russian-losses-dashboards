@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
-import data from '../../../../russian-losses.json';
 import { ChartProps } from '../helpers/chart-props';
 import { TranslateService } from '@ngx-translate/core';
+import { RestLossesService } from '../rest-losses.service';
 
 @Component({
   selector: 'app-monthly-losses',
@@ -15,7 +15,7 @@ export class MonthlyLossesComponent implements OnInit {
 
   barThickness: number = 30;
 
-  constructor(private translate: TranslateService)
+  constructor(private translate: TranslateService, private restLossesService: RestLossesService)
   {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');
@@ -44,10 +44,13 @@ export class MonthlyLossesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createChart();
+    this.restLossesService.getTotalLosses().subscribe(res => 
+      {
+        this.createChart(res['body']);
+      });
   }
 
-  createChart(){
+  createChart(data: any){
     let troopsMap = new Map<string, number>();
     let tanksMap = new Map<string, number>();
     let afvMap = new Map<string, number>();
