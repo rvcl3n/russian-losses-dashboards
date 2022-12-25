@@ -17,9 +17,13 @@ export class RestLossesService {
   getTotalLosses(): Observable<any> {
     return this.http.get<any>(this.heroesUrl)
       .pipe(
+        map(val => {
+          if (!val['body'].hasOwnProperty('length')) throw new Error("Wrong response(Lambda is starting...)");
+          return val;
+        }),
+        retry({ count: 3, delay: 5000 }),
         tap(_ => this.log('fetched total losses')),
         catchError(this.handleError<any>('getHeroes', '')),
-        retry({ count: 3, delay: this.shouldRetry })
       );
   }
 
@@ -42,8 +46,14 @@ export class RestLossesService {
   }
 
   shouldRetry(res: HttpResponse<any>) {
+
+    console.log('Result');
+    console.log(res);
     // Example for catching specific error code as well
     if (!res['body'].hasOwnProperty('length')) {
+
+      console.log('If statement');
+
       return timer(5000); // Adding a timer from RxJS to return observable to delay param.
     }
 
