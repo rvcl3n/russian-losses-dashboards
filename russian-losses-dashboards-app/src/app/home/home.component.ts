@@ -91,8 +91,6 @@ export class HomeComponent implements OnInit {
       {
         this.loadLossesForCurrentDay(res['body']);
         this.createTroopsChart(res['body']);
-        //this.createVehiclesChart(res['body']);
-        //this.createAirForcesChart(res['body']);
       });
 
     

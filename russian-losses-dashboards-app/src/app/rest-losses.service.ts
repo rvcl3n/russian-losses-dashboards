@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, of } from 'rxjs';
+import { Observable, of, timer } from 'rxjs';
 import { catchError, map, retry, tap } from 'rxjs/operators';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class RestLossesService {
       .pipe(
         tap(_ => this.log('fetched total losses')),
         catchError(this.handleError<any>('getHeroes', '')),
-        retry(2)
+        retry({ count: 3, delay: this.shouldRetry })
       );
   }
 
@@ -39,6 +39,15 @@ export class RestLossesService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+
+  shouldRetry(res: HttpResponse<any>) {
+    // Example for catching specific error code as well
+    if (!res.hasOwnProperty('length')) {
+      return timer(1000); // Adding a timer from RxJS to return observable to delay param.
+    }
+
+    throw res;
   }
   
 }
