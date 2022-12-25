@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, retry, tap } from 'rxjs/operators';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -18,7 +18,8 @@ export class RestLossesService {
     return this.http.get<any>(this.heroesUrl)
       .pipe(
         tap(_ => this.log('fetched total losses')),
-        catchError(this.handleError<any>('getHeroes', ''))
+        catchError(this.handleError<any>('getHeroes', '')),
+        retry(2)
       );
   }
 
