@@ -43,8 +43,8 @@ export class RestLossesService {
 
   shouldRetry(res: HttpResponse<any>) {
     // Example for catching specific error code as well
-    if (!res.hasOwnProperty('length')) {
-      return timer(1000); // Adding a timer from RxJS to return observable to delay param.
+    if (!res['body'].hasOwnProperty('length')) {
+      return timer(5000); // Adding a timer from RxJS to return observable to delay param.
     }
 
     throw res;
