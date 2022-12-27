@@ -13,6 +13,7 @@ import { RestLossesService } from '../rest-losses.service';
 export class HomeComponent implements OnInit {
 
   public currentLossesChart: any;
+  public LossesChartLoader: string = "CurrentLossesChartLoader";
 
   public personnel: number;
   public personnelDelta: string = '';
@@ -91,6 +92,8 @@ export class HomeComponent implements OnInit {
       {
         this.loadLossesForCurrentDay(res['body']);
         this.createTroopsChart(res['body']);
+
+        this.LossesChartLoader = "CurrentLossesChartLoaderHidden";
       });
 
     
@@ -192,7 +195,7 @@ export class HomeComponent implements OnInit {
     }
 
     const chartLabel: string = this.translate.instant('HOME.INFO_PERSONNEL');
-
+    
     this.currentLossesChart = new Chart("CurrentLossesChart", {
       type: 'line', //this denotes tha type of chart
       data: {// values on X-Axis

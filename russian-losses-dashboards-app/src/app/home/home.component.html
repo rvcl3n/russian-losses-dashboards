@@ -25,7 +25,9 @@
     <h1>{{ 'HOME.DASHBOARD_TITLE' | translate }}</h1>
     </div>
     <hr/>
+    <div [ngClass]="LossesChartLoader"></div>
   <canvas id="CurrentLossesChart">{{ currentLossesChart }}</canvas>
+
 </div>
 </div>
 

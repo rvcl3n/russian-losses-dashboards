@@ -13,6 +13,8 @@ export class MonthlyLossesComponent implements OnInit {
 
   public chart: any;
 
+  public LossesChartLoader: string = "CurrentLossesChartLoader";
+
   barThickness: number = 30;
 
   constructor(private translate: TranslateService, private restLossesService: RestLossesService)
@@ -47,6 +49,8 @@ export class MonthlyLossesComponent implements OnInit {
     this.restLossesService.getTotalLosses().subscribe(res => 
       {
         this.createChart(res['body']);
+
+        this.LossesChartLoader = "CurrentLossesChartLoaderHidden";
       });
   }
 

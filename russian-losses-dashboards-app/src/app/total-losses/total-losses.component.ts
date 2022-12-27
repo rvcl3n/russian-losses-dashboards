@@ -20,6 +20,8 @@ export class TotalLossesComponent implements OnInit {
 
   aspectRatioValue: number;
 
+  public LossesChartLoader: string = "CurrentLossesChartLoader";
+
   constructor(private translate: TranslateService, private restLossesService: RestLossesService) 
   {
     // this language will be used as a fallback when a translation isn't found in the current language
@@ -66,6 +68,8 @@ export class TotalLossesComponent implements OnInit {
         this.createTroopsChart(res['body']);
         this.createVehiclesChart(res['body']);
         this.createAirForcesChart(res['body']);
+
+        this.LossesChartLoader = "CurrentLossesChartLoaderHidden";
       });
   }
 
