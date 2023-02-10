@@ -15,7 +15,7 @@ export class MonthlyLossesComponent implements OnInit {
 
   public LossesChartLoader: string = "CurrentLossesChartLoader";
 
-  barThickness: number = 30;
+  barThickness: number = 20;
 
   constructor(private translate: TranslateService, private restLossesService: RestLossesService)
   {
@@ -63,59 +63,63 @@ export class MonthlyLossesComponent implements OnInit {
 
     for (let key in data) {
 
-      if (troopsMap.get((data[key]['date'].split('-'))[1]))
-      {
-        let val = troopsMap.get((data[key]['date'].split('-'))[1])!;
+      console.log(data[key]['date']);
 
-        troopsMap.set((data[key]['date'].split('-'))[1], data[key]['personnelDetla'] + val);
+      var mapKey = (data[key]['date'].split('-'))[0] + '-' + (data[key]['date'].split('-'))[1]
+
+      if (troopsMap.get(mapKey))
+      {
+        let val = troopsMap.get(mapKey)!;
+
+        troopsMap.set(mapKey, data[key]['personnelDetla'] + val);
       }
       else
       {
-        troopsMap.set((data[key]['date'].split('-'))[1], data[key]['personnelDetla']);
+        troopsMap.set(mapKey, data[key]['personnelDetla']);
       }
 
-      if (tanksMap.get((data[key]['date'].split('-'))[1]))
+      if (tanksMap.get(mapKey))
       {
-        let val = tanksMap.get((data[key]['date'].split('-'))[1])!;
+        let val = tanksMap.get(mapKey)!;
 
-        tanksMap.set((data[key]['date'].split('-'))[1], data[key]['tanksDelta'] + val);
-      }
-      else
-      {
-        tanksMap.set((data[key]['date'].split('-'))[1], data[key]['tanksDelta']);
-      }
-
-      if (afvMap.get((data[key]['date'].split('-'))[1]))
-      {
-        let val = afvMap.get((data[key]['date'].split('-'))[1])!;
-
-        afvMap.set((data[key]['date'].split('-'))[1], data[key]['afvDelta'] + val);
+        tanksMap.set(mapKey, data[key]['tanksDelta'] + val);
       }
       else
       {
-        afvMap.set((data[key]['date'].split('-'))[1], data[key]['afvDelta']);
+        tanksMap.set(mapKey, data[key]['tanksDelta']);
       }
 
-      if (vehiclesMap.get((data[key]['date'].split('-'))[1]))
+      if (afvMap.get(mapKey))
       {
-        let val = vehiclesMap.get((data[key]['date'].split('-'))[1])!;
+        let val = afvMap.get(mapKey)!;
 
-        vehiclesMap.set((data[key]['date'].split('-'))[1], data[key]['vehiclesDelta'] + val);
-      }
-      else
-      {
-        vehiclesMap.set((data[key]['date'].split('-'))[1], data[key]['vehiclesDelta']);
-      }
-
-      if (artilleryMap.get((data[key]['date'].split('-'))[1]))
-      {
-        let val = artilleryMap.get((data[key]['date'].split('-'))[1])!;
-
-        artilleryMap.set((data[key]['date'].split('-'))[1], data[key]['artilleryDelta'] + val);
+        afvMap.set(mapKey, data[key]['afvDelta'] + val);
       }
       else
       {
-        artilleryMap.set((data[key]['date'].split('-'))[1], data[key]['artilleryDelta']);
+        afvMap.set(mapKey, data[key]['afvDelta']);
+      }
+
+      if (vehiclesMap.get(mapKey))
+      {
+        let val = vehiclesMap.get(mapKey)!;
+
+        vehiclesMap.set(mapKey, data[key]['vehiclesDelta'] + val);
+      }
+      else
+      {
+        vehiclesMap.set(mapKey, data[key]['vehiclesDelta']);
+      }
+
+      if (artilleryMap.get(mapKey))
+      {
+        let val = artilleryMap.get(mapKey)!;
+
+        artilleryMap.set(mapKey, data[key]['artilleryDelta'] + val);
+      }
+      else
+      {
+        artilleryMap.set(mapKey, data[key]['artilleryDelta']);
       }
     }
 
